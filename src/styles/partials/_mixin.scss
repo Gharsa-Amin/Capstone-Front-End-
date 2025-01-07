@@ -1,0 +1,33 @@
+@mixin tablet {
+	@media screen and (min-width: $tablet-breakpoint) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media screen and (min-width: $desktop-breakpoint) {
+		@content;
+	}
+}
+
+@mixin flex-start {
+	display: flex;
+	justify-content: flex-start;
+}
+
+@mixin flex-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+
+@mixin flex-position {
+	position: relative;
+	float: right;
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+$mobile-breakpoint: 320px;
