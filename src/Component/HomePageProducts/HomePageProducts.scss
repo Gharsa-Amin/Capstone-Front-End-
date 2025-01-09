@@ -1,0 +1,35 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
+button {
+	height: $button-height-tablet;
+	border-radius: $button-border-radius;
+	padding: 0 32px;
+	border: none;
+	background-color: $ButtonColor;
+}
+
+.products__wrapper {
+	display: flex;
+	justify-content: center;
+	padding-top: 1.875rem;
+}
+
+.products__list {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.products__item {
+	border: 1px solid $BackgroundColor;
+	background-color: $BackgroundColor;
+	border-width: 10px;
+	border-radius: 12px;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	color: $GlobalTextColor;
+	margin: 0.3125rem;
+	margin-top: 1.25rem;
+}

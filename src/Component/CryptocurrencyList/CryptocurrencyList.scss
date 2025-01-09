@@ -1,0 +1,20 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+.coin-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	justify-content: center;
+}
+.coin-list__item {
+	flex-direction: column;
+	flex: 0 0 48%;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	align-items: center;
+	border: 1px solid $BackgroundColor;
+	margin: 1.25rem;
+	border-radius: 0.75rem;
+}

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import { Link } from "react-router-dom";
+import "./StockNews.scss";
 export default function StockNews() {
 	const [news, setNews] = useState([]);
 
@@ -21,15 +22,18 @@ export default function StockNews() {
 	}, []);
 
 	return (
-		<section>
+		<section className="stocknews">
 			<ul>
 				{news.map((setNew) => {
 					return (
 						<li key={setNew.id}>
-							<h2>{setNew.publisher.name}</h2>
-							<p>{setNew.publisher.homepage_url}</p>
-							<p>{setNew.title}</p>
-							<p>{setNew.description}</p>
+							<div className="stocknews-wrapper">
+								<Link to={setNew.publisher.homepage_url} target="blank">
+									<p className="stocknews-publisher">{setNew.publisher.name}</p>{" "}
+								</Link>
+								<p className="stocknews-title">{setNew.title}</p>
+							</div>
+							<p className="stocknews-description">{setNew.description}</p>
 						</li>
 					);
 				})}
