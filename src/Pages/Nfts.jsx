@@ -4,7 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 export default function Nfts() {
 	const [listNFTS, setListNFTS] = useState([]);
-
+	const [showAll, setShowAll] = useState(false);
 	useEffect(() => {
 		const fetchNFTs = async () => {
 			const url =
@@ -21,10 +21,16 @@ export default function Nfts() {
 		fetchNFTs();
 	}, []);
 
+	const handleToggle = () => {
+		setShowAll(!showAll);
+	};
+
+	const showAllNfts = showAll ? listNFTS : listNFTS.slice(0, 3);
+
 	return (
 		<section>
 			<ul>
-				{listNFTS.map((listNFT) => {
+				{showAllNfts.map((listNFT) => {
 					return (
 						<li key={listNFT.id}>
 							<p>Name of the NFT: {listNFT.name}</p>
@@ -35,6 +41,11 @@ export default function Nfts() {
 						</li>
 					);
 				})}
+				{listNFTS.length > 5 && (
+					<button onClick={handleToggle}>
+						{showAll ? "View Less" : "View More"}
+					</button>
+				)}
 			</ul>
 		</section>
 	);

@@ -1,12 +1,12 @@
 @use "../../styles/partials/typograph" as *;
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/variables" as *;
-.coin-list {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 1rem;
-	justify-content: center;
-}
+// .coin-list {
+// 	display: flex;
+// 	flex-wrap: wrap;
+// 	gap: 1rem;
+// 	justify-content: center;
+// }
 .coin-list__item {
 	flex-direction: column;
 	flex: 0 0 48%;

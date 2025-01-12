@@ -1,5 +1,5 @@
 import "./Header.scss";
-
+import { Link } from "react-router-dom";
 export default function Header() {
 	return (
 		<section>
@@ -8,7 +8,9 @@ export default function Header() {
 					<h3 className="nav__title">GDChain</h3>
 				</div>
 				<div className="nav__right">
-					<p className="nav__signUp">Sign Up</p>
+					<Link to="/signup">
+						<p className="nav__signUp">Sign Up</p>
+					</Link>
 					<p className="nav__login">LogIn</p>
 				</div>
 			</div>

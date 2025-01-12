@@ -13,6 +13,9 @@ import Header from "./Component/Header/Header";
 import Hero from "./Component/Hero/Hero";
 import HomePage from "./Pages/HomePage";
 import Footer from "./Component/Footer/Footer";
+import SignUpForm from "./Component/SignUpForm/SignUpForm";
+import OnboardingForm from "./Component/OnboardingForm/OnboardingForm";
+import CryptocurrencyDetails from "./Component/CryptocurrencyDetails/CryptocurrencyDetails";
 
 export default function App() {
 	return (
@@ -21,6 +24,7 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<HomePage />} />
 				<Route path="/Crypto" element={<Cryptocurrency />} />
+				<Route path="/coins/:coinId" element={<CryptocurrencyDetails />} />
 				<Route path="/Stocks" element={<Stocks />} />
 				<Route path="/Nfts" element={<Nfts />} />
 				<Route path="/nft/:id" element={<NftDetails />} />
@@ -32,6 +36,8 @@ export default function App() {
 				<Route path="/DerivativeList" element={<DerivativeList />} />
 
 				<Route path="/DataAboutCrypto" element={<DataAboutBTC />} />
+				<Route path="/signup" element={<SignUpForm />} />
+				<Route path="/OnboardingForm" element={<OnboardingForm />} />
 			</Routes>
 			<Footer />
 		</BrowserRouter>

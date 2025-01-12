@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import "./CryptocurrencyList.scss";
 
 export default function CoinList() {
-	const [coins, setCoins] = useState([]);
-
+	const [coins, setCoins] = useState([]); // State to toggle visibility of coins
+	const [showAll, setShowAll] = useState(false);
 	useEffect(() => {
 		const fetchCoins = async () => {
 			const URL =
-				"https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad";
+				"https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&x-cg-pro-api-key=CG-qu9NL3mTqThLPCP1KkwqNDwV";
 			try {
 				const response = await axios.get(URL);
 				console.log(response.data);
@@ -22,12 +22,24 @@ export default function CoinList() {
 		fetchCoins();
 	}, []);
 
+	// Function to toggle "view more" behavior
+
+	const handleToggle = () => {
+		setShowAll(!showAll);
+	};
+
+	const coinsToShow = showAll ? coins : coins.slice(0, 4);
+	// Determine which coins to show based on `showAll` state
 	return (
 		<section className="coin-list">
 			{coins.length > 0 ? (
 				<div className="coin-list__container">
-					{coins.map((coin) => (
-						<Link key={coin.id} to="/" className="coin-list__item">
+					{coinsToShow.map((coin) => (
+						<Link
+							key={coin.id}
+							to={`/coins/${coin.id}`}
+							className="coin-list__item"
+						>
 							<img
 								className="coin-list__image"
 								src={coin.image}
@@ -40,6 +52,12 @@ export default function CoinList() {
 							<p className="coin-list__price">{coin.current_price}</p>
 						</Link>
 					))}
+					{/* Button to toggle show more coins */}
+					{coins.length > 5 && (
+						<button className="coin-list__view-more" onClick={handleToggle}>
+							{showAll ? "View Less" : "View More"}
+						</button>
+					)}
 				</div>
 			) : (
 				<p>Loading coins...</p>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import "./CryptoNews.scss";
 export default function CryptoNews() {
 	const [listMarket, setListMarket] = useState([]);
-
+	const [showAll, setShowAll] = useState(false);
 	useEffect(() => {
 		const fetchNews = async () => {
 			const url =
@@ -24,11 +24,16 @@ export default function CryptoNews() {
 		fetchNews();
 	}, []);
 
+	const handleToggle = () => {
+		setShowAll(!showAll);
+	};
+
+	const newsToShow = showAll ? listMarket : listMarket.slice(0, 3);
 	return (
 		<section className="news">
 			<h3>News</h3>
 			<ul>
-				{listMarket.map((newsItem, index) => (
+				{newsToShow.map((newsItem, index) => (
 					<li key={index}>
 						<div className="news-wrapper">
 							{newsItem.banner_image && (
@@ -53,6 +58,11 @@ export default function CryptoNews() {
 						</div>
 					</li>
 				))}
+				{listMarket.length > 5 && (
+					<button className="coin-list__view-more" onClick={handleToggle}>
+						{showAll ? "View Less" : "View More"}
+					</button>
+				)}
 			</ul>
 		</section>
 	);

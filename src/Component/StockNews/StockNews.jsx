@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./StockNews.scss";
 export default function StockNews() {
 	const [news, setNews] = useState([]);
-
+	const [showAll, setShowAll] = useState(false);
 	useEffect(() => {
 		const fetchStockNews = async () => {
 			const url =
@@ -21,10 +21,15 @@ export default function StockNews() {
 		fetchStockNews();
 	}, []);
 
+	const handleToggle = () => {
+		setShowAll(!showAll);
+	};
+
+	const stockNewShow = showAll ? news : news.slice(0, 3);
 	return (
 		<section className="stocknews">
 			<ul>
-				{news.map((setNew) => {
+				{stockNewShow.map((setNew) => {
 					return (
 						<li key={setNew.id}>
 							<div className="stocknews-wrapper">
@@ -37,6 +42,11 @@ export default function StockNews() {
 						</li>
 					);
 				})}
+				{news.length > 5 && (
+					<button onClick={handleToggle}>
+						{showAll ? "View More" : "View Less"}
+					</button>
+				)}
 			</ul>
 		</section>
 	);

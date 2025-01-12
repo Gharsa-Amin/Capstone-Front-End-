@@ -34,13 +34,13 @@ export default function SignUpForm() {
 		}
 
 		const signUpInfo = {
-			full_name: name,
-			contact_password: password,
-			contact_phone: phoneNumber,
-			contact_email: email,
+			name: name,
+			phonenumber: phoneNumber,
+			email: email,
+			password: password,
 		};
 
-		const url = "http://localhost:8080/api/registration";
+		const url = "http://localhost:8080/api/register";
 
 		try {
 			await axios.post(url, signUpInfo);
@@ -57,7 +57,7 @@ export default function SignUpForm() {
 	return (
 		<div className="sign-up-form">
 			<h1 className="h1">
-				<Link to="/">
+				<Link to="/OnboardingForm">
 					<svg
 						className="arrow-back"
 						width="24"
@@ -213,7 +213,7 @@ export default function SignUpForm() {
 
 					<div className="sign-up-form__buttons">
 						<div className="buttons__wrapper">
-							<Link to="/">
+							<Link to="/OnboardingForm">
 								<button className="buttons__button cancel">Cancel</button>
 							</Link>
 							<button type="submit" className="buttons__button add-warehouse">
