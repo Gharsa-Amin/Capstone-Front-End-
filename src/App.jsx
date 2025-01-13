@@ -37,6 +37,8 @@ export default function App() {
 
 				<Route path="/DataAboutCrypto" element={<DataAboutBTC />} />
 				<Route path="/signup" element={<SignUpForm />} />
+				{/* <Route path="/login" element={<LoginPage />} />
+				<Route path="/profile" element={<ProfilePage />} /> */}
 				<Route path="/OnboardingForm" element={<OnboardingForm />} />
 			</Routes>
 			<Footer />

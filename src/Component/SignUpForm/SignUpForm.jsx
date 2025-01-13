@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./SignUpForm.scss";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { emailRegex } from "../../../lib/regex";
 
 export default function SignUpForm() {
 	const [name, setName] = useState("");

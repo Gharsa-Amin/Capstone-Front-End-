@@ -11,7 +11,12 @@ export default function Header() {
 					<Link to="/signup">
 						<p className="nav__signUp">Sign Up</p>
 					</Link>
-					<p className="nav__login">LogIn</p>
+					<Link to="/login">
+						<p className="nav__login">LogIn</p>
+					</Link>
+					<Link to="/profile">
+						<p className="nav__login">Profile</p>
+					</Link>
 				</div>
 			</div>
 		</section>
