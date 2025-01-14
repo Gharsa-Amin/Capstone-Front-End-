@@ -66,16 +66,26 @@ export default function Trading({ current_price }) {
 				/>
 			</label>
 
-			<label htmlFor="cadValue" id="label-cad">
-				To
-				<input
-					type="text"
-					name="cadValue"
-					id="cadValue"
-					value={cadValue}
-					readOnly
-				/>
-			</label>
+			<div className="trading__info-wrapper">
+				<label className="trading__label">To</label>
+				<select
+					multiple
+					name="topCryptoCoins"
+					value={cryptocurrencies}
+					className={`trading__input ${topCryptoCoinsError ? "error" : ""}`}
+					onChange={handleCoinAmount}
+				>
+					{cryptocurrencies.map((coin) => (
+						<option key={coin.id} value={coin.name}>
+							{coin.name} ({coin.symbol.toUpperCase()})
+						</option>
+					))}
+				</select>
+
+				{topCryptoCoinsError && (
+					<p className="error-message">Select at least one cryptocurrency</p>
+				)}
+			</div>
 
 			<label htmlFor="cadValue" id="label-cad">
 				<input
