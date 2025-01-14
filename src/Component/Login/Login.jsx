@@ -11,7 +11,7 @@ export default function LoginPage() {
 		email: "",
 		password: "",
 	});
-
+	console.log(formData);
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
@@ -19,6 +19,7 @@ export default function LoginPage() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setErrorMessage("");
+		setSuccess(false);
 
 		if (!formData.email || !formData.password) {
 			setErrorMessage("You must provide a username and a password");
@@ -43,15 +44,30 @@ export default function LoginPage() {
 				}
 			);
 
+			console.log(data);
+
 			// To ensure the frontend stays logged in, store the JWT in localStorage
 			localStorage.setItem("authToken", data.authToken);
 
 			setSuccess(true);
 			setTimeout(() => {
-				navigate("/profile");
+				navigate("/onboardingform");
 			}, 2000);
 		} catch (error) {
-			setErrorMessage(error.response.data.message);
+			console.error(error); // Log the full error object for debugging
+
+			if (error.response) {
+				// The request was made and the server responded with a status code outside of 2xx
+				setErrorMessage(error.response.data.message || "An error occurred.");
+			} else if (error.request) {
+				// The request was made, but no response was received
+				setErrorMessage(
+					"No response from server. Please check your connection."
+				);
+			} else {
+				// Something happened in setting up the request that triggered an Error
+				setErrorMessage("An error occurred while setting up the request.");
+			}
 		}
 	};
 

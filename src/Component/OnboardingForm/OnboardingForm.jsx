@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 export default function OnboardingForm() {
 	const [networth, setNetworth] = useState("");
 	const [riskTolerance, setRiskTolerance] = useState("");
@@ -23,6 +23,7 @@ export default function OnboardingForm() {
 	const [sharedAccessError, setSharedAccessError] = useState(false);
 
 	const [cryptocurrencies, setCryptocurrencies] = useState([]);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const fetchCryptocurrencies = async () => {
@@ -74,12 +75,19 @@ export default function OnboardingForm() {
 			scammed_before: scammedBefore,
 			someone_helping: someoneHelping,
 			shared_access: sharedAccess,
+			// hasOnboarded: true,
 		};
 
 		// Send data to API (replace URL as needed)
-		const url = "http://localhost:8080/api/onboarding";
+		const url = "http://localhost:8080/api/users/onboarding";
+		const authToken = localStorage.getItem("authToken");
 		try {
-			await axios.post(url, newData);
+			await axios.post(url, newData, {
+				headers: {
+					authorisation: `Bearer ${authToken}`,
+				},
+			});
+
 			// Reset form after successful submission
 			setNetworth("");
 			setRiskTolerance("");
@@ -90,7 +98,7 @@ export default function OnboardingForm() {
 			setScammedBefore(null);
 			setSomeoneHelping(null);
 			setSharedAccess(null);
-			window.location = "/";
+			navigate("/profile");
 		} catch (error) {
 			console.error("Failed to submit onboarding data", error);
 		}

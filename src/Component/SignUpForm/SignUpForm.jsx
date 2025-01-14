@@ -20,7 +20,7 @@ export default function RegisterPage() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
+		console.log("Form data:", formData);
 		if (
 			!formData.email ||
 			!formData.password ||
@@ -37,16 +37,18 @@ export default function RegisterPage() {
 				"The email address is not valid. Expected format: x@x.xx"
 			);
 			return;
+			xwxw;
 		}
-		const url = "http://localhost:8080/api/register";
 		try {
 			// To register a user, send a POST request to the `/users/register` endpoint
-			await axios.post(url, {
+			await axios.post("http://localhost:8080/api/users/register", {
 				name: formData.name,
 				email: formData.email,
 				password: formData.password,
 				phonenumber: formData.phonenumber,
 			});
+
+			console.log(`${import.meta.env.VITE_API_BASE_URL}/users/register`);
 
 			setErrorMessage("");
 			setSuccess(true);
