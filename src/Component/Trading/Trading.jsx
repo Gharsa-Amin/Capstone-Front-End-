@@ -11,7 +11,6 @@ export default function Trading() {
 	const [selectedToCoin, setSelectedToCoin] = useState(null);
 	const [tradeSuccessMessage, setTradeSuccessMessage] = useState("");
 
-	// Fetch cryptocurrency data from API
 	useEffect(() => {
 		const fetchCryptocurrencies = async () => {
 			const URL =

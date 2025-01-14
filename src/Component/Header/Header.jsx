@@ -5,7 +5,9 @@ export default function Header() {
 		<section>
 			<div className="nav">
 				<div className="nav__left">
-					<h3 className="nav__title">GDChain</h3>
+					<Link to="/">
+						<h3 className="nav__title">GDChain</h3>
+					</Link>
 				</div>
 				<div className="nav__right">
 					<Link to="/signup">
