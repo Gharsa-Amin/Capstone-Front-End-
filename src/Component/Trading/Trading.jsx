@@ -1,12 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function Trading({ current_price }) {
 	const [coinAmount, setCoinAmount] = useState("");
 	const [cadValue, setCadValue] = useState("");
+	const [cryptocurrencies, setCryptocurrencies] = useState([]);
+	const [topCryptoCoins, setTopCryptoCoins] = useState([]);
+	const [topCryptoCoinsError, setTopCryptoCoinsError] = useState(false);
+	useEffect(() => {
+		const fetchCryptocurrencies = async () => {
+			const URL =
+				"https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad";
+			try {
+				const response = await axios.get(URL);
+				setCryptocurrencies(response.data); // Store fetched cryptocurrencies
+			} catch (error) {
+				console.error("Error fetching cryptocurrencies", error);
+			}
+		};
+		fetchCryptocurrencies();
+	}, []);
 
 	const handleCoinAmount = (event) => {
 		setCoinAmount(event.target.value);
 	};
+
 	// Handle form submission
 	function formSubmit(event) {
 		event.preventDefault();
@@ -16,20 +34,25 @@ export default function Trading({ current_price }) {
 
 	return (
 		<form id="form" onSubmit={formSubmit}>
-			<div className="title">
-				<h1 className="title__header">Trade Here</h1>
-			</div>
-			<label htmlFor="coinAmount" id="label-coin">
-				From
-				<input
-					type="text"
-					className="amount-title"
-					name="coinAmount"
-					id="coinAmount"
+			<div className="trading__info-wrapper">
+				<label className="trading__label">From</label>
+				<select
+					multiple
+					name="topCryptoCoins"
+					value={cryptocurrencies}
+					className={`trading__input ${topCryptoCoinsError ? "error" : ""}`}
 					onChange={handleCoinAmount}
-					// value={coinAmount}
-				/>
-			</label>
+				>
+					{cryptocurrencies.map((coin) => (
+						<option key={coin.id} value={coin.name}>
+							{coin.name} ({coin.symbol.toUpperCase()})
+						</option>
+					))}
+				</select>
+				{topCryptoCoinsError && (
+					<p className="error-message">Select at least one cryptocurrency</p>
+				)}
+			</div>
 
 			<label htmlFor="coinAmount" id="label-coin">
 				<input
