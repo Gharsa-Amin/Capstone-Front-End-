@@ -8,13 +8,13 @@ export default function HomePageProductSection() {
 			</div>
 			<div className="products__list">
 				<Link to="/Crypto">
-					<p className="products__item">Crypto Trading</p>
+					<p className="products__item">Cryptocurrency</p>
 				</Link>
 				<Link to="/Stocks">
 					<p className="products__item">Stock Trading</p>
 				</Link>
 				<Link to="/Nfts">
-					<p className="products__item">NFT MarketPlace</p>
+					<p className="products__item">NFT Market</p>
 				</Link>
 			</div>
 		</section>
