@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
 import { useParams } from "react-router-dom";
+import "./NftDetails.scss";
 export default function NftDetails() {
 	const [detailsNFTS, setDetailsNFTS] = useState([]);
 	const { id } = useParams();
@@ -36,15 +37,7 @@ export default function NftDetails() {
 		</li>
 	));
 	return (
-		<section>
-			<h2>{detailsNFTS.name}</h2>
-			<div>
-				<a href="https://opensea.io/explore-collections">
-					Click here to Purchase the NFT.
-				</a>
-			</div>
-			<ul>Transaction Explorers:{explorersList}</ul>
-			<p>{detailsNFTS.asset_platform_id}</p>
+		<section className="nft-details">
 			{imageUrl ? (
 				<img
 					src={imageUrl}
@@ -54,33 +47,41 @@ export default function NftDetails() {
 			) : (
 				<p>No image available</p>
 			)}
-			<p>{detailsNFTS.description}</p>
-			<p>{detailsNFTS.native_currency}</p>
-			{floorPrice ? (
-				<p>Floor Price: {floorPrice} ETH</p>
-			) : (
-				<p>No data available</p>
-			)}
+			<h2 className="nft-details__name">{detailsNFTS.name} Price</h2>
+			{floorPrice ? <p> {floorPrice} ETH</p> : <p>No data available</p>}
 
+			<h2 className="nft-details__name">{detailsNFTS.name} Statistics</h2>
 			{marketCapinETh ? (
-				<p>MarketCap in Native Currency: {marketCapinETh} ETH</p>
+				<p>MarketCap: {marketCapinETh} ETH</p>
 			) : (
 				<p>No data available</p>
 			)}
-
+			<p>Total Supply: {detailsNFTS.total_supply}</p>
 			{marketCapinUSD ? (
 				<p>MarketCap in USD: {marketCapinUSD} USD</p>
 			) : (
 				<p>No data available</p>
 			)}
 			<p>
+				Number of Unique Addresses: {detailsNFTS.number_of_unique_addresses}
+			</p>
+			<p>
 				Floor Price 24hour change in USD:
 				{detailsNFTS.floor_price_in_usd_24h_percentage_change}
 			</p>
-			<p>
-				Number of Unique Addresses: {detailsNFTS.number_of_unique_addresses}
-			</p>
-			<p>Total Supply: {detailsNFTS.total_supply}</p>
+
+			<p>Platform ID: {detailsNFTS.asset_platform_id}</p>
+			<div>
+				<ul>Transaction Explorers:{explorersList}</ul>
+				<button>
+					<a href="https://opensea.io/explore-collections">
+						Click here to Purchase the NFT.
+					</a>
+				</button>
+			</div>
+			<p>{detailsNFTS.description}</p>
+			<p>{detailsNFTS.native_currency}</p>
+
 			{floorPrice7days ? (
 				<p>floor price 7day percentage chang: {floorPrice7days} USD</p>
 			) : (

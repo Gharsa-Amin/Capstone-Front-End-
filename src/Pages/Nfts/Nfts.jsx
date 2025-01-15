@@ -42,7 +42,9 @@ export default function Nfts() {
 								NFT Asset Platform: {listNFT.asset_platform_id}
 							</p>
 
-							<Link to={`/nft/${listNFT.id}`}>View Details</Link>
+							<Link className="nfts__link" to={`/nft/${listNFT.id}`}>
+								View Details
+							</Link>
 						</li>
 					);
 				})}
