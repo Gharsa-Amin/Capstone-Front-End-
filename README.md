@@ -1,5 +1,5 @@
 Project Title
-STOCK AND CRYPTO TRADING APP;
+Blockchain Hub
 
 Overview
 What is your app? Give a brief description in a couple of sentences. A stock and crypto trading app with trading capabilities, ongoing news. Also a database, for when the users sign up to the platform.
