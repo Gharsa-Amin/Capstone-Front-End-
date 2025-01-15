@@ -4,19 +4,21 @@
 .homepage {
 	&__wrapper {
 		padding: 1.5625rem;
+		padding-top: 0;
 		color: $GlobalTextDarkBlue;
 	}
 	&__text {
-		font-size: 1.875rem;
-		padding-top: 1.25rem;
+		font-size: 1.25rem;
+		margin: auto;
 	}
 
 	&__button {
-		padding: 32px 32px;
+		padding: 20px 32px;
 		padding-bottom: 45px;
 		width: 90%;
 		margin-bottom: 1.875rem;
 		font-size: 20px;
+		margin-top: 1.875rem;
 	}
 }
 
@@ -24,14 +26,19 @@ img {
 	width: 90%;
 	height: auto;
 	border-radius: 12px;
+	padding: 0;
 }
 
-span {
+h3 {
 	color: $RedColor;
 	padding-bottom: 0.75rem;
 	line-height: 3;
+	font-size: 1.7rem;
 }
 
+p {
+	margin: 0;
+}
 button.homepage_button {
 	padding: 32px 32px;
 	width: 100%;
