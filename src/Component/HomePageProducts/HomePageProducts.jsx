@@ -8,6 +8,7 @@ export default function HomePageProductSection() {
 				<div className="products__wrapper">
 					<button className="homepage__button">Our Products</button>
 				</div>
+
 				<div className="products__list">
 					<div className="products__list-wrapper">
 						<Link to="/Crypto">
@@ -21,7 +22,7 @@ export default function HomePageProductSection() {
 						</Link>
 					</div>
 				</div>
-				<h4>A road to financial freedom</h4>
+				<h3 className="products__title">A road to financial freedom</h3>
 				<img
 					className="products__image"
 					src={photo3}

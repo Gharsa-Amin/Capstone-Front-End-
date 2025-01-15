@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { emailRegex } from "../../../lib/regex";
-
+import "./SignUpForm.scss";
 export default function RegisterPage() {
 	const navigate = useNavigate();
 	const [errorMessage, setErrorMessage] = useState(false);
@@ -65,8 +65,11 @@ export default function RegisterPage() {
 			<h2>Sign Up Form</h2>
 			<form className="form" onSubmit={handleSubmit}>
 				<div className="form__group">
-					<label htmlFor="name">Name</label>
+					<label htmlFor="name" className="form__label">
+						Name
+					</label>
 					<input
+						className="form__input"
 						type="text"
 						name="name"
 						id="name"
@@ -74,8 +77,11 @@ export default function RegisterPage() {
 					/>
 				</div>
 				<div className="form__group">
-					<label htmlFor="emailRegister">Email</label>
+					<label htmlFor="emailRegister" className="form__label">
+						Email Address
+					</label>
 					<input
+						className="form__input"
 						type="text"
 						name="email"
 						id="emailRegister"
@@ -83,8 +89,11 @@ export default function RegisterPage() {
 					/>
 				</div>
 				<div className="form__group">
-					<label htmlFor="phonenumber">Phone Number</label>
+					<label htmlFor="phonenumber" className="form__label">
+						Phone Number
+					</label>
 					<input
+						className="form__input"
 						type="text"
 						name="phonenumber"
 						id="phonenumberRegister"
@@ -92,17 +101,22 @@ export default function RegisterPage() {
 					/>
 				</div>
 				<div className="form__group">
-					<label htmlFor="passwordRegister">Password</label>
+					<label htmlFor="passwordRegister" className="form__label">
+						Password
+					</label>
 					<input
+						className="form__input"
 						type="password"
 						name="password"
 						id="passwordRegister"
 						onChange={(e) => handleChange(e)}
 					/>
 				</div>
-				<button>Signup</button>
-				{errorMessage && <p>{errorMessage}</p>}
-				{success && <p>Success! Redirecting to login page...</p>}
+				<div className="form__wrapper">
+					<button className="form__button">Signup</button>
+					{errorMessage && <p>{errorMessage}</p>}
+					{success && <p>Success! Redirecting to login page...</p>}
+				</div>
 			</form>
 		</main>
 	);

@@ -27,6 +27,9 @@ h4 {
 	justify-content: space-around;
 }
 
+.products__title {
+	padding-left: 1.25rem;
+}
 .products__item {
 	border: 1px solid $BackgroundColor;
 	background-color: $BackgroundColor;
@@ -36,8 +39,7 @@ h4 {
 	padding-bottom: 0.5rem;
 	color: $GlobalTextColor;
 	padding-bottom: 20px;
-	// margin: 0.3125rem;
-	// margin-top: 1.25rem;
+	box-shadow: 0 18px 38px #a3bfd033;
 }
 .products__list-wrapper {
 	width: 100%;
@@ -47,6 +49,7 @@ h4 {
 	justify-content: space-evenly;
 	align-items: center;
 	gap: 20px;
+	box-shadow: 0 18px 38px #a3bfd033;
 }
 
 .products__image {
@@ -57,4 +60,5 @@ h4 {
 img {
 	border-radius: 0.75rem;
 	width: 90%;
+	box-shadow: 0 18px 38px #a3bfd033;
 }

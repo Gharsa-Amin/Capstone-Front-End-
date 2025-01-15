@@ -1,0 +1,36 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/variables" as *;
+
+.form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	&__group {
+		font-size: 1.25rem;
+		padding-bottom: 0.75rem;
+	}
+	&__input {
+		margin-top: 0.75rem;
+		width: 100%;
+	}
+	&__label {
+		justify-content: flex-start;
+		padding-left: 12px;
+	}
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+	}
+	&__button {
+		width: 34.5%;
+		margin-left: 2.5rem;
+		margin-bottom: 2.5rem;
+		margin-top: 1.6rem;
+		font-size: 1rem;
+		color: $GlobalTextDarkBlue;
+	}
+}

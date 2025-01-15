@@ -25,8 +25,8 @@ export default function HomePageBody() {
 			<HomePageProductSection />
 			<section className="homepage">
 				<div className="homepage__wrapper">
-					<h3 className="homepage__text">First deposit of $35CAD</h3>
-					<p>get rewarded with $25CAD 🙃</p>
+					<h3 className="homepage__text">Make First Deposit of $35CAD</h3>
+					<p>Get rewarded with $25CAD 🙃 💕</p>
 					<button className="homepage__button">Make a Deposit</button>
 					<img src={photo2} alt="Photo of the body" />
 				</div>
