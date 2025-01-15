@@ -1,6 +1,20 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
 .nft-details {
+	padding: 1.25rem;
+
 	&__name {
 		justify-content: flex-start;
 		align-items: flex-start;
+		&--modifier {
+			border-bottom: 1px solid $BackgroundColor;
+		}
 	}
+}
+.wrapper {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid $BackgroundColor;
 }

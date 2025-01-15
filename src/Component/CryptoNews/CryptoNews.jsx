@@ -45,7 +45,7 @@ export default function CryptoNews() {
 							)}
 
 							<Link to={newsItem.url} target="_blank">
-								<p>Title: {newsItem.title}</p>
+								<p className="news-title">Title: {newsItem.title}</p>
 							</Link>
 						</div>
 						{/* <p>Published: {newsItem.time_published}</p> */}

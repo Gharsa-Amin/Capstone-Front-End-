@@ -21,10 +21,11 @@ export default function NftDetails() {
 	}, [id]);
 	if (!detailsNFTS) return <p>Loading...</p>;
 	const imageUrl = detailsNFTS?.image?.small_2x;
-	const floorPrice = detailsNFTS?.floor_price?.native_currency;
+	const floorPrice = detailsNFTS?.floor_price?.native_currency; //to fixed..
 	const marketCapinETh = detailsNFTS?.market_cap?.native_currency;
 	const marketCapinUSD = detailsNFTS?.market_cap?.usd;
-	const floorPrice7days = detailsNFTS?.floor_price_7d_percentage_change?.usd;
+	const floorPrice7days =
+		detailsNFTS?.floor_price_7d_percentage_change?.usd.toFixed(4);
 	const floorPrice14days = detailsNFTS?.floor_price_14d_percentage_change?.usd;
 	const floorPrice30days = detailsNFTS?.floor_price_30d_percentage_change?.usd;
 	const floorPrice60days = detailsNFTS?.floor_price_60d_percentage_change?.usd;
@@ -50,35 +51,53 @@ export default function NftDetails() {
 			<h2 className="nft-details__name">{detailsNFTS.name} Price</h2>
 			{floorPrice ? <p> {floorPrice} ETH</p> : <p>No data available</p>}
 
-			<h2 className="nft-details__name">{detailsNFTS.name} Statistics</h2>
-			{marketCapinETh ? (
-				<p>MarketCap: {marketCapinETh} ETH</p>
-			) : (
-				<p>No data available</p>
-			)}
-			<p>Total Supply: {detailsNFTS.total_supply}</p>
-			{marketCapinUSD ? (
-				<p>MarketCap in USD: {marketCapinUSD} USD</p>
-			) : (
-				<p>No data available</p>
-			)}
-			<p>
-				Number of Unique Addresses: {detailsNFTS.number_of_unique_addresses}
-			</p>
-			<p>
-				Floor Price 24hour change in USD:
-				{detailsNFTS.floor_price_in_usd_24h_percentage_change}
-			</p>
-
-			<p>Platform ID: {detailsNFTS.asset_platform_id}</p>
-			<div>
-				<ul>Transaction Explorers:{explorersList}</ul>
-				<button>
-					<a href="https://opensea.io/explore-collections">
-						Click here to Purchase the NFT.
-					</a>
-				</button>
+			<h2 className="nft-details__name nft-details__name--modifier">
+				{detailsNFTS.name} Statistics
+			</h2>
+			<div className="wrapper">
+				<div>MarketCap:</div>
+				{marketCapinETh ? (
+					<p className="nft-details__marketCap">{marketCapinETh} ETH</p>
+				) : (
+					<p>No data available</p>
+				)}
 			</div>
+			<div className="wrapper">
+				<div>Total Supply: </div>
+				<p className="nft-details__supply">{detailsNFTS.total_supply}</p>
+			</div>
+			<div className="wrapper">
+				<div>MarketCap in USD:</div>
+				{marketCapinUSD ? (
+					<p className="nft-details__supply">{marketCapinUSD} USD</p>
+				) : (
+					<p>No data available</p>
+				)}
+			</div>
+			<div className="wrapper">
+				<div>Number of Unique Addresses: </div>
+				<p className="nft-details__addresses">
+					{detailsNFTS.number_of_unique_addresses}
+				</p>
+			</div>
+			<div className="wrapper">
+				<div>Floor Price 24hour change in USD:</div>
+				<p className="nft-details__change">
+					{detailsNFTS.floor_price_in_usd_24h_percentage_change}
+				</p>
+			</div>
+			<div className="wrapper">
+				<div>Platform ID: </div>
+				<p className="nft-details__platform">{detailsNFTS.asset_platform_id}</p>
+			</div>
+			<ul>Transaction Explorers:{explorersList}</ul>
+			<button>
+				<a href="https://opensea.io/explore-collections">
+					Click here to Purchase the NFT.
+				</a>
+			</button>
+
+			<h2 className="nft-details__name"> What is {detailsNFTS.name}?</h2>
 			<p>{detailsNFTS.description}</p>
 			<p>{detailsNFTS.native_currency}</p>
 
