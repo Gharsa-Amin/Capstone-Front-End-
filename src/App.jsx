@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 import Cryptocurrency from "./Pages/Cryptocurrency";
 import Stocks from "./Pages/Stocks";
-import Nfts from "./Pages/Nfts";
+import Nfts from "./Pages/Nfts/Nfts";
 import NftDetails from "./Component/NftDetails/NftDetails";
 import ExchangeList from "./Component/ExchangesList/ExchangesList";
 import DerivativeExchangeList from "./Component/DerivativesExchanges/DerivativesExchanges";
