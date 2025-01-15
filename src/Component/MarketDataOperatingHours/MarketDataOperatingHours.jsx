@@ -39,7 +39,7 @@ export default function OperatingHours() {
 	return (
 		<>
 			<section className="OperatingHours">
-				{/* Dropdown to select date */}
+				<h2>Market Wide Holidays </h2>
 				<label htmlFor="date">Select a Date: </label>
 				<select
 					id="date"
