@@ -3,7 +3,7 @@ import CryptoNews from "../Component/CryptoNews/CryptoNews";
 // import CryptoCurrencyListPolygon from "../Component/CryptoCurrencyListPolygon/CryptoCurrencyListPolygon";
 // import DataAboutBTC from "../Component/DataAboutEachCryptoCurrency/DataAboutEachCryptoCurrency";
 // import OperatingHours from "../Component/MarketDataOperatingHours/MarketDataOperatingHours";
-import StocksCharts from "../Component/StocksCharts/StocksCharts";
+// import StocksCharts from "../Component/StocksCharts/StocksCharts";
 
 export default function () {
 	return (
@@ -11,7 +11,7 @@ export default function () {
 			<CoinList />
 			<CryptoNews />
 			{/* <CryptoCurrencyListPolygon /> */}
-			<StocksCharts />
+			{/* <StocksCharts /> */}
 			{/* <DataAboutBTC /> */}
 		</>
 	);

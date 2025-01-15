@@ -10,7 +10,6 @@ import DerivativeList from "./Component/DerivativeList/DerivativeList";
 import TopGainersAndLosers from "./Component/TopGainersAndLosers/TopGainersAndLosers";
 import DataAboutBTC from "./Component/DataAboutEachCryptoCurrency/DataAboutEachCryptoCurrency";
 import Header from "./Component/Header/Header";
-import Hero from "./Component/Hero/Hero";
 import HomePage from "./Pages/HomePage";
 import Footer from "./Component/Footer/Footer";
 import SignUpForm from "./Component/SignUpForm/SignUpForm";
@@ -45,6 +44,7 @@ export default function App() {
 				<Route path="/onboardingform" element={<OnboardingForm />} />
 				<Route path="/trading" element={<Trading />} />
 			</Routes>
+
 			<Footer />
 		</BrowserRouter>
 	);

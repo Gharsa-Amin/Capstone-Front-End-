@@ -10,7 +10,6 @@ export default function Stocks() {
 			{/* <Market /> */}
 			<TopGainersAndLosers />
 			<StockNews />
-			<OperatingHours />
 		</>
 	);
 }

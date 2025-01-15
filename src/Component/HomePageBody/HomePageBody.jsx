@@ -10,16 +10,6 @@ export default function HomePageBody() {
 		<>
 			<section className="homepage">
 				<div className="homepage__wrapper">
-					<h3 className="homepage__text">Women led Blockchain-Hub</h3>
-					<p>
-						89% of the firm is led by women. Be a part of the decentralized
-						future.
-					</p>
-					<img src={photo3} alt="Photo of the body" />
-				</div>
-			</section>
-			<section className="homepage">
-				<div className="homepage__wrapper">
 					<h3 className="homepage__text">Simple and Secure Design</h3>
 					<p>Trading is one click away!</p>
 					<Link to="/signup">
@@ -39,6 +29,16 @@ export default function HomePageBody() {
 					<p>get rewarded with $25CAD 🙃</p>
 					<button className="homepage__button">Make a Deposit</button>
 					<img src={photo2} alt="Photo of the body" />
+				</div>
+			</section>
+			<section className="homepage">
+				<div className="homepage__wrapper">
+					<h3 className="homepage__text">Women led Blockchain-Hub</h3>
+					<p>
+						89% of the firm is led by women. Be a part of the decentralized
+						future.
+					</p>
+					<img src={photo3} alt="Photo of the body" />
 				</div>
 			</section>
 		</>

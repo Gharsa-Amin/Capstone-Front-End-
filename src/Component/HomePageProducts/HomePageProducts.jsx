@@ -8,18 +8,20 @@ export default function HomePageProductSection() {
 				<div className="products__wrapper">
 					<button className="homepage__button">Our Products</button>
 				</div>
-				<h4>A road to financial freedom</h4>
 				<div className="products__list">
-					<Link to="/Crypto">
-						<p className="products__item">Cryptocurrency</p>
-					</Link>
-					<Link to="/Stocks">
-						<p className="products__item">Stock Trading</p>
-					</Link>
-					<Link to="/Nfts">
-						<p className="products__item">NFT Market</p>
-					</Link>
+					<div className="products__list-wrapper">
+						<Link to="/Crypto">
+							<button className="products__item">Cryptocurrency</button>
+						</Link>
+						<Link to="/Stocks">
+							<button className="products__item">Stock Trading</button>
+						</Link>
+						<Link to="/Nfts">
+							<button className="products__item">NFT Market</button>
+						</Link>
+					</div>
 				</div>
+				<h4>A road to financial freedom</h4>
 				<img
 					className="products__image"
 					src={photo3}

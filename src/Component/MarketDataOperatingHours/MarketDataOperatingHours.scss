@@ -1,0 +1,21 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
+.operatinghours {
+	&__date {
+		color: $RedColor;
+	}
+	&__wrapper {
+		color: $GlobalTextDarkBlue;
+	}
+	&__status {
+		color: $GlobalTextGrey;
+	}
+	&__exchange {
+		font-size: 1.125rem;
+	}
+	&__holiday {
+		font-style: italic;
+	}
+}
