@@ -6,6 +6,7 @@ export default function HomePageProductSection() {
 			<div className="products__wrapper">
 				<button>Our Products</button>
 			</div>
+			<h4>One Step away from making Generational Wealth</h4>
 			<div className="products__list">
 				<Link to="/Crypto">
 					<p className="products__item">Cryptocurrency</p>
