@@ -1,0 +1,52 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
+.form-section {
+	padding: 2.5rem;
+	background-color: #fefefe;
+
+	&__header {
+		color: $GlobalTextDarkBlue;
+	}
+}
+
+h2 {
+	color: $RedColor;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1.25rem;
+}
+
+input {
+	padding: 0.75rem;
+	margin-left: 0.75rem;
+	border-radius: 0.75rem;
+}
+
+textarea {
+	padding-left: 0.75rem;
+	padding-right: 40px;
+	padding-bottom: 35px;
+	border-radius: 0.75rem;
+	margin-left: 0.75rem;
+}
+
+.form-section__button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	width: 80%;
+	margin-top: 12px;
+	margin-left: 40px;
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-
+import "./ComplaintForm.scss";
 export default function ComplaintForm() {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -40,37 +40,47 @@ export default function ComplaintForm() {
 	};
 
 	return (
-		<section>
-			<form onSubmit={handleSubmit}>
-				<label>
-					Name
-					<input
-						type="text"
-						value={name}
-						onChange={(e) => setName(e.target.value)}
-					/>
-				</label>
-				<label>
-					Email
-					<input
-						type="email"
-						value={email}
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-				</label>
+		<section className="form-section">
+			<h2>Get In Touch</h2>
+			<div className="form-section__header">
+				We would love to hear from you. Submit your Feedback here.
+				<form onSubmit={handleSubmit}>
+					<label>
+						Name
+						<input
+							className="form-section__input"
+							type="text"
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+						/>
+					</label>
+					<label>
+						Email
+						<input
+							className="form-section__input"
+							type="email"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+					</label>
 
-				<label>
-					Feedback/Complaints
-					<textarea
-						value={complaints}
-						onChange={(e) => setComplaints(e.target.value)}
-					/>
-				</label>
-				<button type="submit">Submit</button>
-			</form>
-
-			{/* Show success or error message */}
-			{message && <p>{message}</p>}
+					<label>
+						Feedback
+						<textarea
+							className="form-section__input"
+							value={complaints}
+							onChange={(e) => setComplaints(e.target.value)}
+						/>
+					</label>
+					<div className="form-section__button">
+						<button className="form-section__button" type="submit">
+							Submit
+						</button>
+					</div>
+				</form>
+				{/* Show success or error message */}
+				{message && <p>{message}</p>}
+			</div>
 		</section>
 	);
 }

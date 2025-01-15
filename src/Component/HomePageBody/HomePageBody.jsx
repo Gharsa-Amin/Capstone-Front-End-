@@ -41,14 +41,6 @@ export default function HomePageBody() {
 					<img src={photo2} alt="Photo of the body" />
 				</div>
 			</section>
-			<section className="homepage">
-				<div className="homepage__wrapper">
-					<h3 className="homepage__text">Staking Rewards</h3>
-					<p>Earn up to 12.35% in staking rewards. Get started.</p>
-					<button className="homepage__button">Start Staking</button>
-					<img src={photo2} alt="Photo of the body" />
-				</div>
-			</section>
 		</>
 	);
 }
