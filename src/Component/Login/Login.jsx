@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { emailRegex } from "../../../lib/regex";
 
 export default function LoginPage() {
@@ -73,11 +74,31 @@ export default function LoginPage() {
 
 	return (
 		<main>
-			<h2>Login</h2>
+			<Link className="form__link" to="/">
+				HomePage
+				<svg
+					className="form__arrow-back"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+						fill="#2E66E6"
+					/>
+				</svg>
+				<h2>Login Form</h2>
+			</Link>
+
 			<form className="form" onSubmit={handleSubmit}>
 				<div className="form__group">
-					<label htmlFor="email">Email</label>
+					<label htmlFor="email" className="form__label">
+						Email
+					</label>
 					<input
+						className="form__input"
 						type="text"
 						name="email"
 						id="email"
@@ -85,15 +106,18 @@ export default function LoginPage() {
 					/>
 				</div>
 				<div className="form__group">
-					<label htmlFor="password">Password</label>
+					<label htmlFor="password" className="form__label">
+						Password
+					</label>
 					<input
+						className="form__input"
 						type="password"
 						name="password"
 						id="password"
 						onChange={(e) => handleChange(e)}
 					/>
 				</div>
-				<button>Login</button>
+				<button className="form__button">Login</button>
 				{errorMessage && <p>{errorMessage}</p>}
 				{success && <p>Success! Redirecting to profile page...</p>}
 			</form>
