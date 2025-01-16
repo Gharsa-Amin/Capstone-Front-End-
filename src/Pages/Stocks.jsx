@@ -8,7 +8,7 @@ export default function Stocks() {
 	return (
 		<>
 			{/* <Market /> */}
-			{/* <TopGainersAndLosers /> */}
+			<TopGainersAndLosers />
 			<StockNews />
 		</>
 	);

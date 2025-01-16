@@ -44,7 +44,7 @@ export default function StockNews() {
 				})}
 				{news.length > 5 && (
 					<button onClick={handleToggle}>
-						{showAll ? "View More" : "View Less"}
+						{showAll ? "View Less" : "View More"}
 					</button>
 				)}
 			</ul>

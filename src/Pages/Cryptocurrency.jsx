@@ -9,7 +9,7 @@ export default function () {
 	return (
 		<>
 			<CoinList />
-			{/* <CryptoNews /> */}
+			<CryptoNews />
 			{/* <CryptoCurrencyListPolygon /> */}
 			{/* <StocksCharts /> */}
 			{/* <DataAboutBTC /> */}
