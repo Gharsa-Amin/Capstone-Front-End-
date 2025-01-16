@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "./OnboardingForm.scss";
 export default function OnboardingForm() {
 	const [networth, setNetworth] = useState("");
 	const [riskTolerance, setRiskTolerance] = useState("");
@@ -167,9 +168,6 @@ export default function OnboardingForm() {
 				<form onSubmit={handleSubmit} className="new-trading__form">
 					<div className="new-trading__form-wrapper">
 						<div className="details details--trading">
-							<h2 className="trading__header">Trading Preferences</h2>
-
-							{/* Networth */}
 							<div className="trading__info-wrapper">
 								<label className="trading__label">
 									What is your net worth?
@@ -318,7 +316,6 @@ export default function OnboardingForm() {
 								/>
 							</div>
 
-							{/* Scammed Before */}
 							<div className="trading__info-wrapper">
 								<label className="trading__label">
 									Have you ever been scammed before?
@@ -343,7 +340,6 @@ export default function OnboardingForm() {
 								)}
 							</div>
 
-							{/* Someone Helping */}
 							<div className="trading__info-wrapper">
 								<label className="trading__label">
 									Is someone helping you with this onboarding?
@@ -368,7 +364,6 @@ export default function OnboardingForm() {
 								)}
 							</div>
 
-							{/* Shared Access */}
 							<div className="trading__info-wrapper">
 								<label className="trading__label">
 									Do you share your account with someone else?
@@ -393,7 +388,6 @@ export default function OnboardingForm() {
 								)}
 							</div>
 
-							{/* Submit Button */}
 							<div className="trading__btn-wrapper">
 								<button className="trading__submit-btn" type="submit">
 									Submit
