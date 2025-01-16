@@ -13,6 +13,11 @@ export default function Trading() {
 	const [selectedToCoin, setSelectedToCoin] = useState(null);
 	const [tradeSuccessMessage, setTradeSuccessMessage] = useState("");
 
+	const authToken = localStorage.getItem("authToken");
+	console.log(authToken);
+	if (!authToken) {
+		return <p>You Must be logged in!:)</p>;
+	}
 	// Fetch cryptocurrencies
 	useEffect(() => {
 		const fetchCryptocurrencies = async () => {

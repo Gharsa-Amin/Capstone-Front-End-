@@ -39,6 +39,30 @@ export default function OnboardingForm() {
 		fetchCryptocurrencies();
 	}, []);
 
+	useEffect(() => {
+		const fetchProfile = async () => {
+			const authToken = localStorage.getItem("authToken");
+
+			try {
+				const { data } = await axios.get(
+					`${import.meta.env.VITE_API_BASE_URL}/users/profile`,
+					{
+						headers: {
+							authorisation: `Bearer ${authToken}`,
+						},
+					}
+				);
+				console.log(data);
+				if (data.net_worth) {
+					navigate("/profile");
+				}
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		fetchProfile();
+	}, []);
+
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
