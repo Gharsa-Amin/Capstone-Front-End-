@@ -50,51 +50,74 @@ export default function DataAboutEachCryptoCurrency() {
 	return (
 		<>
 			<div className="coin-list__section">
-				<p className="coin-list__price">Market Cap: ${market_cap}</p>
+				<div className="wrapper">
+					<p className="coin-list__price">Market Cap: ${market_cap}</p>
+				</div>
 
-				<p className="coin-list__diluted-valuation">
-					Full Diluted Valuation: ${fully_diluted_valuation}
-				</p>
+				<div className="wrapper">
+					<div>Full Diluted Valuation</div>
+					<p className="coin-list__diluted-valuation">
+						${fully_diluted_valuation}
+					</p>
+				</div>
+				<div className="wrapper">
+					<div>Total Volume</div>
+					<p className="coin-list__total-volume"> {total_volume}</p>
+				</div>
+				<div className="wrapper">
+					<div>Current Price </div>
+					<p className="coin-list__total-volume">${current_price}</p>
+				</div>
+				<div className="wrapper">
+					<div>24Hrs High</div>
+					<p className="coin-list__high24">${high_24h}</p>
+				</div>
+				<div className="wrapper">
+					<div>24Hrs Low</div>
+					<p className="coin-list__low24">${low_24h}</p>
+				</div>
+				<div className="wrapper">
+					<div>Price Change in 24Hrs</div>
+					<p className="coin-list__price-change">${price_change_24h}</p>
+				</div>
 
-				<p className="coin-list__total-volume">Total Volume: {total_volume}</p>
+				<div className="wrapper">
+					<div>Price Change in 24Hrs </div>
+					<p className="coin-list__percentage-change">
+						{price_change_percentage_24h}%
+					</p>
+				</div>
+				<div className="wrapper">
+					<div>Market Cap Change</div>
+					<p className="coin-list__cap-change">
+						{market_cap_change_percentage_24h}%
+					</p>
+				</div>
 
-				<p className="coin-list__total-volume">
-					Current Price: ${current_price}
-				</p>
-
-				<p className="coin-list__high24">24Hrs High: ${high_24h}</p>
-
-				<p className="coin-list__low24">24Hrs Low: ${low_24h}</p>
-
-				<p className="coin-list__price-change">
-					Price Change in 24Hrs: ${price_change_24h}
-				</p>
-
-				<p className="coin-list__percentage-change">
-					Price Change in 24Hrs: {price_change_percentage_24h}%
-				</p>
-
-				<p className="coin-list__cap-change">
-					Market Cap Change: {market_cap_change_percentage_24h}%
-				</p>
-
-				<p className="coin-list__circulating-supply">
-					Circulating Supply: {circulating_supply}
-				</p>
-
-				<p className="coin-list__total-supply">Total Supply: {total_supply}</p>
-
-				<p className="coin-list__all-time-high">All Time High: ${ath}</p>
-
-				<p className="coin-list__all-time-high-date">
-					All Time High Date: {ath_date}
-				</p>
-
-				<p className="coin-list__all-time-low">All Time Low: ${atl}</p>
-
-				<p className="coin-list__all-time-low-date">
-					All Time Low Date: {atl_date}
-				</p>
+				<div className="wrapper">
+					<div>Circulating Supply</div>
+					<p className="coin-list__circulating-supply">{circulating_supply}</p>
+				</div>
+				<div className="wrapper">
+					<div>Total Supply</div>
+					<p className="coin-list__total-supply">{total_supply}</p>
+				</div>
+				<div className="wrapper">
+					<div>All Time High</div>
+					<p className="coin-list__all-time-high"> ${ath}</p>
+				</div>
+				<div className="wrapper">
+					<div>All Time High Date</div>
+					<p className="coin-list__all-time-high-date">{ath_date}</p>
+				</div>
+				<div className="wrapper">
+					<div>All Time Low</div>
+					<p className="coin-list__all-time-low"> ${atl}</p>
+				</div>
+				<div className="wrapper">
+					<div>All Time Low Date</div>
+					<p className="coin-list__all-time-low-date">{atl_date}</p>
+				</div>
 			</div>
 		</>
 	);

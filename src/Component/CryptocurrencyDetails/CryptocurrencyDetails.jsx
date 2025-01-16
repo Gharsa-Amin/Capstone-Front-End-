@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./CryptocurrencyDetails.scss";
 import {
@@ -131,6 +132,22 @@ export default function CryptocurrencyDetails() {
 		return (
 			<>
 				<div className="coin-list__section">
+					<Link className="form__link" to="/Crypto">
+						List of All Coins
+						<svg
+							className="form__arrow-back"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+								fill="#2E66E6"
+							/>
+						</svg>
+					</Link>
 					<div className="coin-list__coinId">
 						<div className="coin-list__header">
 							<p className="coin-list__name">
@@ -145,7 +162,11 @@ export default function CryptocurrencyDetails() {
 						</div>
 						<p className="coin-list__price">Current Price: ${current_price}</p>
 					</div>
-
+					<Link to="/signup">
+						<button className="homepage__button homepage__button-modifier">
+							Get started
+						</button>
+					</Link>
 					{/* Timeframe Buttons */}
 					<div className="coin-list__timeframes">
 						<div onClick={() => handleTimeframeClick("1h")}>1H</div>
