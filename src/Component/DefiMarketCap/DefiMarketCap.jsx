@@ -22,6 +22,7 @@ export default function DefiMarketCap() {
 
 	return (
 		<section className="defi">
+			<h1>Defi MarketCap</h1>
 			<table className="defi-table">
 				<thead>
 					<tr>

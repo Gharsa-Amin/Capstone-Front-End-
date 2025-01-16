@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./CryptocurrencyList.scss";
 import image5 from "../../assets/images/icons/pexels-anna-nekrashevich-6802042.jpg";
+import DefiMarketCap from "../DefiMarketCap/DefiMarketCap";
 
 export default function CoinList() {
 	const [coins, setCoins] = useState([]); // State to toggle visibility of coins
@@ -52,6 +53,7 @@ export default function CoinList() {
 						</svg>
 					</Link>
 				</div>
+				<DefiMarketCap />
 				<div className="coin-list__wrapper">
 					<h3 className="coin-list__title">Start Trading </h3>
 					<img className="coin-list__hero-image" src={image5} alt="" />
@@ -62,6 +64,7 @@ export default function CoinList() {
 						Start Trading
 					</button>
 				</Link>
+
 				{coins.length > 0 ? (
 					<div className="coin-list__container">
 						{coinsToShow.map((coin) => (

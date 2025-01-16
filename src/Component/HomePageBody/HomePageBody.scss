@@ -8,8 +8,7 @@
 		color: $GlobalTextDarkBlue;
 	}
 	&__text {
-		font-size: 1.8rem;
-		margin: auto;
+		margin: 0;
 	}
 
 	&__button {
@@ -31,10 +30,10 @@ img {
 }
 
 h3 {
-	color: $RedColor;
+	color: #e24156;
 	padding-bottom: 0.75rem;
-	line-height: 3;
-	font-size: 1.7rem;
+	line-height: 2;
+	font-size: 1.4rem;
 }
 
 p {

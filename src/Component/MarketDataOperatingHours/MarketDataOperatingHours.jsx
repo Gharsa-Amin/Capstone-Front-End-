@@ -69,8 +69,6 @@ export default function OperatingHours() {
 								<p className="operatinghours__status">
 									Status: {operatingHour.status}
 								</p>
-								<p>{operatingHour.close}</p>
-								<p>{operatingHour.open}</p>
 							</div>
 						</li>
 					))}
