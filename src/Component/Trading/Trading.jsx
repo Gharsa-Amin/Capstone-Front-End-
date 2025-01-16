@@ -1,16 +1,19 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import "./Trading.scss";
 
 export default function Trading() {
 	const [coinAmount, setCoinAmount] = useState("");
 	const [fromCoin, setFromCoin] = useState("");
 	const [toCoin, setToCoin] = useState("");
 	const [cadValue, setCadValue] = useState("");
-	const [cryptocurrencies, setCryptocurrencies] = useState([]); //
+	const [cryptocurrencies, setCryptocurrencies] = useState([]);
 	const [selectedFromCoin, setSelectedFromCoin] = useState(null);
 	const [selectedToCoin, setSelectedToCoin] = useState(null);
 	const [tradeSuccessMessage, setTradeSuccessMessage] = useState("");
 
+	// Fetch cryptocurrencies
 	useEffect(() => {
 		const fetchCryptocurrencies = async () => {
 			const URL =
@@ -25,6 +28,7 @@ export default function Trading() {
 		fetchCryptocurrencies();
 	}, []);
 
+	// Handle selecting the 'From' coin
 	const handleSelectFromCoin = (event) => {
 		const selectedCoinId = event.target.value;
 		const selectedCoinData = cryptocurrencies.find(
@@ -32,10 +36,12 @@ export default function Trading() {
 		);
 		setFromCoin(selectedCoinId);
 		setSelectedFromCoin(selectedCoinData);
-		setCadValue("");
-		setTradeSuccessMessage("");
+		setCadValue(""); // Reset the CAD value
+		setTradeSuccessMessage(""); // Reset success message
+		calculateConvertedAmount(selectedCoinData, selectedToCoin, coinAmount);
 	};
 
+	// Handle selecting the 'To' coin
 	const handleSelectToCoin = (event) => {
 		const selectedCoinId = event.target.value;
 		const selectedCoinData = cryptocurrencies.find(
@@ -43,36 +49,39 @@ export default function Trading() {
 		);
 		setToCoin(selectedCoinId);
 		setSelectedToCoin(selectedCoinData);
-
-		if (coinAmount && selectedFromCoin && selectedCoinData) {
-			const conversionRate =
-				selectedCoinData.current_price / selectedFromCoin.current_price;
-			const convertedAmount = coinAmount * conversionRate;
-			setCadValue(convertedAmount.toFixed(2));
-		}
+		calculateConvertedAmount(selectedFromCoin, selectedCoinData, coinAmount);
 	};
 
+	// Handle coin amount input
 	const handleCoinAmount = (event) => {
 		const amount = event.target.value;
 		setCoinAmount(amount);
-
-		if (amount && selectedFromCoin && selectedToCoin) {
-			const conversionRate =
-				selectedToCoin.current_price / selectedFromCoin.current_price;
-			const convertedAmount = amount * conversionRate;
-			setCadValue(convertedAmount.toFixed(2));
-		}
+		calculateConvertedAmount(selectedFromCoin, selectedToCoin, amount);
 	};
 
+	// Calculate the converted amount in CAD
+	const calculateConvertedAmount = (fromCoinData, toCoinData, amount) => {
+		if (!amount || !fromCoinData || !toCoinData) {
+			setCadValue("");
+			return;
+		}
+
+		const conversionRate =
+			toCoinData.current_price / fromCoinData.current_price;
+		const convertedAmount = amount * conversionRate;
+		setCadValue(convertedAmount.toFixed(2)); // Convert to CAD and round to 2 decimal places
+	};
+
+	// Form submit handler
 	const formSubmit = (event) => {
 		event.preventDefault();
 		if (!coinAmount || !selectedFromCoin || !selectedToCoin) {
 			alert("Please select both coins and enter an amount.");
 			return;
 		}
-
 		setTradeSuccessMessage("You have traded successfully!");
 
+		// Reset the form
 		setFromCoin("");
 		setToCoin("");
 		setCoinAmount("");
@@ -100,7 +109,7 @@ export default function Trading() {
 				</select>
 			</div>
 
-			<label htmlFor="coinAmount" id="label-coin">
+			<label htmlFor="coinAmount" id="trading__label">
 				<input
 					type="number"
 					className="amount-title"
@@ -112,12 +121,6 @@ export default function Trading() {
 					min="0"
 				/>
 			</label>
-
-			{cadValue && (
-				<div className="conversion__result">
-					<p>Converted value: {cadValue} CAD</p>
-				</div>
-			)}
 
 			<div className="trading__info-wrapper">
 				<label className="trading__label">To</label>
@@ -138,7 +141,7 @@ export default function Trading() {
 				</select>
 			</div>
 
-			<label htmlFor="cadValue" id="label-cad">
+			<label htmlFor="cadValue" className="trading__label">
 				<input
 					type="text"
 					placeholder="Converted amount"
@@ -149,13 +152,34 @@ export default function Trading() {
 				/>
 			</label>
 
-			<button type="submit">Trade</button>
+			<Link to="/profile">
+				<button type="submit" className="homepage__button">
+					Trade🕺💃
+				</button>
+			</Link>
 
 			{tradeSuccessMessage && (
 				<div className="success-message">
 					<p>{tradeSuccessMessage}</p>
 				</div>
 			)}
+
+			<Link className="form__link" to="/profile">
+				Go Back to the Main Profile
+				<svg
+					className="form__arrow-back"
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M20 11H7.83L13.42 5.41L12 4L4 12L12 20L13.41 18.59L7.83 13H20V11Z"
+						fill="#2E66E6"
+					/>
+				</svg>
+			</Link>
 		</form>
 	);
 }
