@@ -47,6 +47,11 @@ export default function DataAboutEachCryptoCurrency() {
 		atl_date,
 	} = coinDetails;
 
+	const formatDate = (date) => {
+		if (!date) return null;
+		const dataobj = new Date(date);
+		return dataobj.toLocaleDateString("en-ca");
+	};
 	return (
 		<>
 			<div className="coin-list__section">
@@ -104,47 +109,19 @@ export default function DataAboutEachCryptoCurrency() {
 				</div>
 				<div className="wrapper">
 					<div>All Time High</div>
-					<p className="coin-list__all-time-high"> ${ath}</p>
+					<p className="coin-list__all-time-high">
+						{" "}
+						{ath_date ? new Date(ath_date).toLocaleDateString("en-CA") : "N/A"}
+					</p>
 				</div>
-				<div className="wrapper">
-					<div>All Time High Date</div>
-					<p className="coin-list__all-time-high-date">{ath_date}</p>
-				</div>
-				<div className="wrapper">
-					<div>All Time Low</div>
-					<p className="coin-list__all-time-low"> ${atl}</p>
-				</div>
+
 				<div className="wrapper">
 					<div>All Time Low Date</div>
-					<p className="coin-list__all-time-low-date">{atl_date}</p>
+					<p className="coin-list__all-time-low-date">
+						{atl_date ? new Date(atl_date).toLocaleDateString("en-CA") : "N/A"}
+					</p>
 				</div>
 			</div>
 		</>
 	);
 }
-// import { useEffect, useState } from "react";
-// import axios from "axios";
-
-// export default function DataAboutBTC() {
-// 	const [dataBTC, setDataBTC] = useState(null);
-
-// 	useEffect(() => {
-// 		const fetchBTC = async () => {
-// 			const url = "http://localhost:5000/api/btc";
-// 			try {
-// 				const response = await axios.get(url, {});
-// 				setDataBTC(response.data);
-// 			} catch (error) {
-// 				console.log("Error fetching data:", error);
-// 			}
-// 		};
-
-// 		fetchBTC();
-// 	}, []);
-
-// 	return (
-// 		<section>
-// 			{dataBTC ? <p>{dataBTC.description}</p> : <p>Loading Bitcoin data...</p>}
-// 		</section>
-// 	);
-// }
