@@ -157,17 +157,17 @@ export default function Trading() {
 				/>
 			</label>
 
-			<Link to="/profile">
-				<button type="submit" className="homepage__button">
-					Trade🕺💃
-				</button>
-			</Link>
+			<button type="submit" className="homepage__button">
+				Trade🕺💃
+			</button>
 
-			{tradeSuccessMessage && (
-				<div className="success-message">
-					<p>{tradeSuccessMessage}</p>
-				</div>
-			)}
+			<Link to="/profile">
+				{tradeSuccessMessage && (
+					<div className="success-message">
+						<p>{tradeSuccessMessage}</p>
+					</div>
+				)}
+			</Link>
 
 			<Link className="form__link" to="/profile">
 				Go Back to the Main Profile

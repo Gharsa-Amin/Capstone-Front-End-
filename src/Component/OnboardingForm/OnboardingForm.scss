@@ -1,3 +1,7 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
 .trading__btn-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -5,4 +9,12 @@
 	align-items: center;
 	margin-top: 0.75rem;
 	margin-bottom: 0.75rem;
+}
+
+.onboarding-header {
+	color: $RedColor;
+}
+
+form {
+	color: $GlobalTextDarkBlue;
 }

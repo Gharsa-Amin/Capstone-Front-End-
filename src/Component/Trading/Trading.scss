@@ -1,3 +1,7 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
 .trading__info-wrapper {
 	display: flex;
 	flex-direction: column;
