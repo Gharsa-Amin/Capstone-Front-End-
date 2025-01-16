@@ -31,14 +31,14 @@ export default function CryptoNews() {
 	const newsToShow = showAll ? listMarket : listMarket.slice(0, 3);
 	return (
 		<section className="news">
-			<h3>News</h3>
+			<h3 className="news-header">News</h3>
 			<ul>
 				{newsToShow.map((newsItem, index) => (
 					<li key={index}>
 						<div className="news-wrapper">
 							{newsItem.banner_image && (
 								<img
-									className="news-image"
+									className="news-images"
 									src={newsItem.banner_image}
 									alt={newsItem.title}
 								/>

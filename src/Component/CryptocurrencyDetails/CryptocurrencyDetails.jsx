@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
 import { useParams } from "react-router-dom";
+import "./CryptocurrencyDetails.scss";
 import {
 	LineChart,
 	Line,
@@ -13,14 +14,13 @@ import {
 	ResponsiveContainer,
 } from "recharts";
 
-import "./CryptocurrencyDetails.scss";
-
 export default function CryptocurrencyDetails() {
 	const [coinDetails, setCoinDetails] = useState(null);
 	const [priceData, setPriceData] = useState([]);
 	const [priceData7Days, setPriceData7Days] = useState([]);
 	const [priceData30Days, setPriceData30Days] = useState([]);
-	const [priceData60Days, setPriceData60Days] = useState([]); // State to store price data
+	const [priceData60Days, setPriceData60Days] = useState([]);
+	const [selectedTimeframe, setSelectedTimeframe] = useState("1h"); // Track selected timeframe
 	const params = useParams();
 	const coinId = params.coinId;
 
@@ -37,83 +37,79 @@ export default function CryptocurrencyDetails() {
 		};
 
 		const fetchPriceHistory = async () => {
-			// Fetch historical price data (last 24 hours)
 			const historyURL = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=cad&days=1`;
 			try {
 				const historyResponse = await axios.get(historyURL);
 				console.log(historyResponse.data);
 
-				// Reformat the historical data into a chart-friendly format
 				const priceHistory = historyResponse.data.prices.map((price) => ({
-					time: new Date(price[0]).toLocaleTimeString(), // Convert timestamp to time string
-					price: price[1], // Price value
+					time: new Date(price[0]).toLocaleTimeString(),
+					price: price[1],
 				}));
 
-				setPriceData(priceHistory); // Set the price data for the chart
+				setPriceData(priceHistory);
 			} catch (error) {
 				console.error("Error fetching historical price data:", error);
 			}
 		};
+
 		const fetchPriceHistory7Days = async () => {
-			// Fetch historical price data (last 24 hours)
 			const historyURL7Days = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=cad&days=7`;
 			try {
 				const historyResponse7Days = await axios.get(historyURL7Days);
 				console.log(historyResponse7Days.data);
 
-				// Reformat the historical data into a chart-friendly format
 				const priceHistory7Days = historyResponse7Days.data.prices.map(
 					(price) => ({
-						time: new Date(price[0]).toLocaleDateString(), // Convert timestamp to time string
-						price: price[1], // Price value
+						time: new Date(price[0]).toLocaleDateString(),
+						price: price[1],
 					})
 				);
 
-				setPriceData7Days(priceHistory7Days); // Set the price data for the chart
+				setPriceData7Days(priceHistory7Days);
 			} catch (error) {
 				console.error("Error fetching historical price data:", error);
 			}
 		};
+
 		const fetchPriceHistory1month = async () => {
-			// Fetch historical price data (last 24 hours)
 			const historyURL30Days = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=cad&days=30`;
 			try {
 				const historyResponse30Days = await axios.get(historyURL30Days);
 				console.log(historyResponse30Days.data);
 
-				// Reformat the historical data into a chart-friendly format
 				const priceHistory30Days = historyResponse30Days.data.prices.map(
 					(price) => ({
-						time: new Date(price[0]).toLocaleDateString(), // Convert timestamp to time string
-						price: price[1], // Price value
+						time: new Date(price[0]).toLocaleDateString(),
+						price: price[1],
 					})
 				);
 
-				setPriceData30Days(priceHistory30Days); // Set the price data for the chart
+				setPriceData30Days(priceHistory30Days);
 			} catch (error) {
 				console.error("Error fetching historical price data:", error);
 			}
 		};
+
 		const fetchPriceHistory2month = async () => {
-			// Fetch historical price data (last 24 hours)
-			const historyURL60Days = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=cad&days=60`;
+			const historyURL60Days = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=cad&days=360`;
 			try {
 				const historyResponse60Days = await axios.get(historyURL60Days);
 				console.log(historyResponse60Days.data);
 
-				// Reformat the historical data into a chart-friendly format
 				const priceHistory60Days = historyResponse60Days.data.prices.map(
 					(price) => ({
-						time: new Date(price[0]).toLocaleDateString(), // Convert timestamp to time string
-						price: price[1], // Price value
+						time: new Date(price[0]).toLocaleDateString(),
+						price: price[1],
 					})
 				);
 
-				setPriceData60Days(priceHistory60Days); // Set the price data for the chart
+				setPriceData60Days(priceHistory60Days);
 			} catch (error) {
 				console.error("Error fetching historical price data:", error);
 			}
 		};
+
 		fetchCoinDetails();
 		fetchPriceHistory();
 		fetchPriceHistory7Days();
@@ -126,76 +122,91 @@ export default function CryptocurrencyDetails() {
 	} else {
 		const { name, symbol, image, current_price } = coinDetails[0];
 
+		// Function to handle timeframe click
+		const handleTimeframeClick = (timeframe) => {
+			setSelectedTimeframe(timeframe);
+		};
+
 		return (
 			<>
 				<div className="coin-list__section">
 					<div className="coin-list__coinId">
 						<div className="coin-list__header">
 							<p className="coin-list__name">{name}</p>
-							<p className="coin-list__name">{symbol}</p>
+							<p className="coin-list__name">({symbol})</p>
 						</div>
-						<img src={image} alt={`${name} Icon`} width={70} />
+						<img src={image} alt={`${name} Icon`} width={30} />
+					</div>
+
+					{/* Timeframe Buttons */}
+					<div className="coin-list__timeframes">
+						<button onClick={() => handleTimeframeClick("1h")}>1H</button>
+						<button onClick={() => handleTimeframeClick("7d")}>7D</button>
+						<button onClick={() => handleTimeframeClick("1m")}>1M</button>
+						<button onClick={() => handleTimeframeClick("1y")}>1Y</button>
+						<button onClick={() => handleTimeframeClick("5y")}>5+Y</button>
 					</div>
 				</div>
 
 				{/* Price Data Line Chart */}
 				<div className="coin-list__chart">
-					<ResponsiveContainer width="100%" height={300}>
-						<LineChart data={priceData}>
-							<CartesianGrid strokeDasharray="3 3" />
-							<XAxis dataKey="time" />
-							<YAxis />
-							<Tooltip />
-							<Legend />
-							<Line type="monotone" dataKey="price" stroke="#8884d8" />
-						</LineChart>
-					</ResponsiveContainer>
-				</div>
+					{selectedTimeframe === "1h" && (
+						<ResponsiveContainer width="100%" height={300}>
+							<LineChart data={priceData}>
+								<CartesianGrid strokeDasharray="3 3" />
+								<XAxis dataKey="time" />
+								<YAxis />
+								<Tooltip />
+								<Legend />
+								<Line type="monotone" dataKey="price" stroke="#8884d8" />
+							</LineChart>
+						</ResponsiveContainer>
+					)}
 
-				<div className="coin-list__chart">
-					<ResponsiveContainer width="100%" height={300}>
-						<LineChart data={priceData7Days}>
-							<CartesianGrid strokeDasharray="4 3" />
-							<XAxis dataKey="time" />
-							<YAxis />
-							<Tooltip />
-							<Legend />
-							<Line type="monotone" dataKey="price" stroke="#8884d8" />
-						</LineChart>
-					</ResponsiveContainer>
-				</div>
+					{selectedTimeframe === "7d" && (
+						<ResponsiveContainer width="100%" height={300}>
+							<LineChart data={priceData7Days}>
+								<CartesianGrid strokeDasharray="4 3" />
+								<XAxis dataKey="time" />
+								<YAxis />
+								<Tooltip />
+								<Legend />
+								<Line type="monotone" dataKey="price" stroke="#8884d8" />
+							</LineChart>
+						</ResponsiveContainer>
+					)}
 
-				<div className="coin-list__chart">
-					<ResponsiveContainer width="100%" height={300}>
-						<LineChart data={priceData30Days}>
-							<CartesianGrid strokeDasharray="4 3" />
-							<XAxis dataKey="time" />
-							<YAxis />
-							<Tooltip />
-							<Legend />
-							<Line type="monotone" dataKey="price" stroke="#8884d8" />
-						</LineChart>
-					</ResponsiveContainer>
-				</div>
+					{selectedTimeframe === "1m" && (
+						<ResponsiveContainer width="100%" height={300}>
+							<LineChart data={priceData30Days}>
+								<CartesianGrid strokeDasharray="4 3" />
+								<XAxis dataKey="time" />
+								<YAxis />
+								<Tooltip />
+								<Legend />
+								<Line type="monotone" dataKey="price" stroke="#8884d8" />
+							</LineChart>
+						</ResponsiveContainer>
+					)}
 
-				<div className="coin-list__chart">
-					<ResponsiveContainer width="100%" height={300}>
-						<LineChart data={priceData60Days}>
-							<CartesianGrid strokeDasharray="4 3" />
-							<XAxis dataKey="time" />
-							<YAxis />
-							<Tooltip />
-							<Legend />
-							<Line
-								// type="monotone"
-								dataKey="price"
-								stroke="#42a5f5"
-								strokeWidth={2}
-								dot={{ stroke: "#42a5f5", strokeWidth: 2, r: 5 }}
-								activeDot={{ r: 8 }}
-							/>
-						</LineChart>
-					</ResponsiveContainer>
+					{selectedTimeframe === "1y" && (
+						<ResponsiveContainer width="100%" height={300}>
+							<LineChart data={priceData60Days}>
+								<CartesianGrid strokeDasharray="4 3" />
+								<XAxis dataKey="time" />
+								<YAxis />
+								<Tooltip />
+								<Legend />
+								<Line
+									dataKey="price"
+									stroke="#42a5f5"
+									strokeWidth={2}
+									dot={{ stroke: "#42a5f5", strokeWidth: 2, r: 5 }}
+									activeDot={{ r: 8 }}
+								/>
+							</LineChart>
+						</ResponsiveContainer>
+					)}
 				</div>
 
 				{/* Other Coin Details */}
@@ -212,6 +223,219 @@ export default function CryptocurrencyDetails() {
 		);
 	}
 }
+
+// import axios from "axios";
+// import { useEffect, useState } from "react";
+// import React from "react";
+// import { useParams } from "react-router-dom";
+// import "./CryptocurrencyDetails.scss";
+// import {
+// 	LineChart,
+// 	Line,
+// 	XAxis,
+// 	YAxis,
+// 	CartesianGrid,
+// 	Tooltip,
+// 	Legend,
+// 	ResponsiveContainer,
+// } from "recharts";
+
+// import "./CryptocurrencyDetails.scss";
+
+// export default function CryptocurrencyDetails() {
+// 	const [coinDetails, setCoinDetails] = useState(null);
+// 	const [priceData, setPriceData] = useState([]);
+// 	const [priceData7Days, setPriceData7Days] = useState([]);
+// 	const [priceData30Days, setPriceData30Days] = useState([]);
+// 	const [priceData60Days, setPriceData60Days] = useState([]);
+// 	const params = useParams();
+// 	const coinId = params.coinId;
+
+// 	useEffect(() => {
+// 		const fetchCoinDetails = async () => {
+// 			const URL = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&ids=${coinId}&x_cg_demo_api_key=CG-W6zX7BvdbX89GxTLvnApgbA5`;
+// 			try {
+// 				const response = await axios.get(URL);
+// 				console.log(response.data);
+// 				setCoinDetails(response.data);
+// 			} catch (error) {
+// 				console.error("Error fetching coins:", error);
+// 			}
+// 		};
+
+// 		const fetchPriceHistory = async () => {
+// 			const historyURL = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=cad&days=1`;
+// 			try {
+// 				const historyResponse = await axios.get(historyURL);
+// 				console.log(historyResponse.data);
+
+// 				const priceHistory = historyResponse.data.prices.map((price) => ({
+// 					time: new Date(price[0]).toLocaleTimeString(),
+// 					price: price[1],
+// 				}));
+
+// 				setPriceData(priceHistory);
+// 			} catch (error) {
+// 				console.error("Error fetching historical price data:", error);
+// 			}
+// 		};
+// 		const fetchPriceHistory7Days = async () => {
+// 			const historyURL7Days = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=cad&days=7`;
+// 			try {
+// 				const historyResponse7Days = await axios.get(historyURL7Days);
+// 				console.log(historyResponse7Days.data);
+
+// 				const priceHistory7Days = historyResponse7Days.data.prices.map(
+// 					(price) => ({
+// 						time: new Date(price[0]).toLocaleDateString(),
+// 						price: price[1],
+// 					})
+// 				);
+
+// 				setPriceData7Days(priceHistory7Days);
+// 			} catch (error) {
+// 				console.error("Error fetching historical price data:", error);
+// 			}
+// 		};
+// 		const fetchPriceHistory1month = async () => {
+// 			const historyURL30Days = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=cad&days=30`;
+// 			try {
+// 				const historyResponse30Days = await axios.get(historyURL30Days);
+// 				console.log(historyResponse30Days.data);
+
+// 				const priceHistory30Days = historyResponse30Days.data.prices.map(
+// 					(price) => ({
+// 						time: new Date(price[0]).toLocaleDateString(),
+// 						price: price[1],
+// 					})
+// 				);
+
+// 				setPriceData30Days(priceHistory30Days);
+// 			} catch (error) {
+// 				console.error("Error fetching historical price data:", error);
+// 			}
+// 		};
+// 		const fetchPriceHistory2month = async () => {
+// 			const historyURL60Days = `https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=cad&days=360`;
+// 			try {
+// 				const historyResponse60Days = await axios.get(historyURL60Days);
+// 				console.log(historyResponse60Days.data);
+
+// 				const priceHistory60Days = historyResponse60Days.data.prices.map(
+// 					(price) => ({
+// 						time: new Date(price[0]).toLocaleDateString(),
+// 						price: price[1],
+// 					})
+// 				);
+
+// 				setPriceData60Days(priceHistory60Days);
+// 			} catch (error) {
+// 				console.error("Error fetching historical price data:", error);
+// 			}
+// 		};
+// 		fetchCoinDetails();
+// 		fetchPriceHistory();
+// 		fetchPriceHistory7Days();
+// 		fetchPriceHistory1month();
+// 		fetchPriceHistory2month();
+// 	}, [coinId]);
+
+// 	if (!coinDetails) {
+// 		return <p>Coins loading...</p>;
+// 	} else {
+// 		const { name, symbol, image, current_price } = coinDetails[0];
+
+// 		return (
+// 			<>
+// 				<div className="coin-list__section">
+// 					<div className="coin-list__coinId">
+// 						<div className="coin-list__header">
+// 							<p className="coin-list__name">{name}</p>
+// 							<p className="coin-list__name">({symbol})</p>
+// 						</div>
+// 						<img src={image} alt={`${name} Icon`} width={30} />
+// 					</div>
+// 					<div>1H</div>
+// 					<div>7D</div>
+// 					<div>1M</div>
+// 					<div>1Y</div>
+// 					<div>5+Y</div>
+// 				</div>
+
+// 				{/* Price Data Line Chart */}
+// 				<div className="coin-list__chart">
+// 					<ResponsiveContainer width="100%" height={300}>
+// 						<LineChart data={priceData}>
+// 							<CartesianGrid strokeDasharray="3 3" />
+// 							<XAxis dataKey="time" />
+// 							<YAxis />
+// 							<Tooltip />
+// 							<Legend />
+// 							<Line type="monotone" dataKey="price" stroke="#8884d8" />
+// 						</LineChart>
+// 					</ResponsiveContainer>
+// 				</div>
+
+// 				<div className="coin-list__chart">
+// 					<ResponsiveContainer width="100%" height={300}>
+// 						<LineChart data={priceData7Days}>
+// 							<CartesianGrid strokeDasharray="4 3" />
+// 							<XAxis dataKey="time" />
+// 							<YAxis />
+// 							<Tooltip />
+// 							<Legend />
+// 							<Line type="monotone" dataKey="price" stroke="#8884d8" />
+// 						</LineChart>
+// 					</ResponsiveContainer>
+// 				</div>
+
+// 				<div className="coin-list__chart">
+// 					<ResponsiveContainer width="100%" height={300}>
+// 						<LineChart data={priceData30Days}>
+// 							<CartesianGrid strokeDasharray="4 3" />
+// 							<XAxis dataKey="time" />
+// 							<YAxis />
+// 							<Tooltip />
+// 							<Legend />
+// 							<Line type="monotone" dataKey="price" stroke="#8884d8" />
+// 						</LineChart>
+// 					</ResponsiveContainer>
+// 				</div>
+
+// 				<div className="coin-list__chart">
+// 					<ResponsiveContainer width="100%" height={300}>
+// 						<LineChart data={priceData60Days}>
+// 							<CartesianGrid strokeDasharray="4 3" />
+// 							<XAxis dataKey="time" />
+// 							<YAxis />
+// 							<Tooltip />
+// 							<Legend />
+// 							<Line
+// 								// type="monotone"
+// 								dataKey="price"
+// 								stroke="#42a5f5"
+// 								strokeWidth={2}
+// 								dot={{ stroke: "#42a5f5", strokeWidth: 2, r: 5 }}
+// 								activeDot={{ r: 8 }}
+// 							/>
+// 						</LineChart>
+// 					</ResponsiveContainer>
+// 				</div>
+
+// 				{/* Other Coin Details */}
+// 				<div className="coin-list__flex">
+// 					<div className="coin-list__details">
+// 						<div className="coin-list__div">
+// 							<p className="coin-list__price">
+// 								Current Price: ${current_price}
+// 							</p>
+// 						</div>
+// 					</div>
+// 				</div>
+// 			</>
+// 		);
+// 	}
+// }
 
 // import axios from "axios";
 // import { useEffect, useState } from "react";

@@ -9,11 +9,17 @@ li {
 }
 
 .news {
-	&-image {
+	&-images {
 		width: 5.625rem;
 		padding-right: 0.75rem;
 		padding-top: 0.75rem;
 		border-radius: 1.25rem;
+		box-shadow: none;
+	}
+	&-header {
+		margin: 0;
+		padding: 0;
+		padding-left: 2rem;
 	}
 	&-wrapper {
 		display: flex;
@@ -38,6 +44,11 @@ li {
 		justify-content: space-between;
 		border-bottom: 1px solid $BackgroundColor;
 	}
-	&-news-title {
+	&-title {
+		color: $GlobalTextDarkBlue;
+		font-size: 0.75rem;
 	}
+}
+.coin-list__view-more {
+	margin: 1rem;
 }
