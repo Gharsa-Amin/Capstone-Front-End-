@@ -12,6 +12,14 @@
 			border-bottom: 1px solid $BackgroundColor;
 		}
 	}
+	&__transactions {
+		display: flex;
+		justify-content: space-between;
+		margin: 0;
+		padding: 0;
+		font-size: larger;
+		font-style: italic;
+	}
 }
 .wrapper {
 	display: flex;

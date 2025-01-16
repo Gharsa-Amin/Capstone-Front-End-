@@ -133,7 +133,7 @@ export default function CryptocurrencyDetails() {
 			<>
 				<div className="coin-list__section">
 					<Link className="form__link" to="/Crypto">
-						List of All Coins
+						List of All 35+❤️ Cryptocurrencies
 						<svg
 							className="form__arrow-back"
 							width="24"
