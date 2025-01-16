@@ -162,7 +162,7 @@ export default function CryptocurrencyDetails() {
 						</div>
 						<p className="coin-list__price">Current Price: ${current_price}</p>
 					</div>
-					<Link to="/signup">
+					<Link to="/trading">
 						<button className="homepage__button homepage__button-modifier">
 							Get started
 						</button>

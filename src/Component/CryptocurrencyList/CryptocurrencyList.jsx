@@ -56,9 +56,10 @@ export default function CoinList() {
 					<h3 className="coin-list__title">Start Trading </h3>
 					<img className="coin-list__hero-image" src={image5} alt="" />
 				</div>
-				<Link to="/signup">
+
+				<Link to="/trading">
 					<button className="homepage__button homepage__button-modifier">
-						Create An Account
+						Start Trading
 					</button>
 				</Link>
 				{coins.length > 0 ? (
