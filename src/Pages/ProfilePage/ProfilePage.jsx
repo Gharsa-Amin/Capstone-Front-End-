@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import CoinList from "../../Component/CryptocurrencyList/CryptocurrencyList";
 import CryptoNews from "../../Component/CryptoNews/CryptoNews";
-
+import "./ProfilePage.scss";
 export default function ProfilePage() {
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState("");
@@ -47,23 +47,32 @@ export default function ProfilePage() {
 	};
 
 	return (
-		<main>
+		<main className="profile-page">
 			{isLoading && <h1>Loading...</h1>}
 			{!isLoading && !error && (
 				<section>
+					<p className="profile__item">Name: {userData.name}</p>
+					<p className="profile__item">Email: {userData.email}</p>
+					<div className="profile__item profile__item-modifier">
+						<p profile__item>Watchlist:</p>
+						<div className="wrapper__profile">{userData.top_crypto_coins}</div>
+					</div>
+					<p className="profile__item">Phone Number: {userData.phonenumber}</p>
+					<p className="profile__item">Net Worth: {userData.net_worth}</p>
+					<p className="profile__item">
+						Risk Tolerance: {userData.risk_tolerance}
+					</p>
+					<p className="profile__item">
+						Trading Experience: {userData.trading_experience}
+					</p>
+					<p className="profile__item">Products: {userData.products}</p>
+					<p className="profile__item">
+						Current Occupation: {userData.current_occupation}
+					</p>
 					<Link to="/trading">
 						<button>Trade</button>
 					</Link>
 					<button>Deposit</button>
-					<p>Name: {userData.name}</p>
-					<p>Email: {userData.email}</p>
-					<p>Watchlist {userData.top_crypto_coins}</p>
-					<p>Phone Number: {userData.phonenumber}</p>
-					<p>Net Worth: {userData.net_worth}</p>
-					<p>Risk Tolerance: {userData.risk_tolerance}</p>
-					<p>Trading Experience: {userData.trading_experience}</p>
-					<p>Products: {userData.products}</p>
-					<p>Current Occupation: {userData.current_occupation}</p>
 					<button onClick={handleLogout}>Logout</button>
 					<h2>Start Trading Here!</h2>
 					<CoinList />
