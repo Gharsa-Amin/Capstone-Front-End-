@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { Link } from "react-router-dom";
 import image7 from "../../assets/images/icons/pudgy penguin--.jpg";
-import "./Nfts.scss";
+import "./NftsPage.scss";
 export default function Nfts() {
 	const [listNFTS, setListNFTS] = useState([]);
 	const [showAll, setShowAll] = useState(false);

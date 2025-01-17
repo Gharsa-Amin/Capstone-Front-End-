@@ -4,7 +4,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-import "./CryptocurrencyDetails.scss";
+import "./CryptocurrencyCharts.scss";
 import {
 	LineChart,
 	Line,
@@ -17,7 +17,7 @@ import {
 } from "recharts";
 import DataAboutEachCryptoCurrency from "../DataAboutEachCryptoCurrency/DataAboutEachCryptoCurrency";
 
-export default function CryptocurrencyDetails() {
+export default function CryptocurrencyCharts() {
 	const [coinDetails, setCoinDetails] = useState(null);
 	const [priceData, setPriceData] = useState([]);
 	const [priceData7Days, setPriceData7Days] = useState([]);

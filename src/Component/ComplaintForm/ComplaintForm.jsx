@@ -27,7 +27,7 @@ export default function ComplaintForm() {
 
 			// Handle success
 			if (response.status === 201) {
-				setMessage("Complaint submitted successfully!");
+				setMessage("Feedback submitted successfully!");
 				setName(""); // Clear the form after submission
 				setEmail("");
 				setComplaints("");

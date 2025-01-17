@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import CoinList from "../CryptocurrencyList/CryptocurrencyList";
-import CryptoNews from "../CryptoNews/CryptoNews";
+import CoinList from "../../Component/CryptocurrencyList/CryptocurrencyList";
+import CryptoNews from "../../Component/CryptoNews/CryptoNews";
 
 export default function ProfilePage() {
 	const [isLoading, setIsLoading] = useState(true);

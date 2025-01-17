@@ -1,44 +1,36 @@
 import React from "react";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import Cryptocurrency from "./Pages/Cryptocurrency";
-import Stocks from "./Pages/Stocks";
-import Nfts from "./Pages/Nfts/Nfts";
+
+import Stocks from "./Pages/StocksPage/StocksPage";
+import Nfts from "./Pages/NftsPage/NftsPage";
 import NftDetails from "./Component/NftDetails/NftDetails";
-import ExchangeList from "./Component/ExchangesList/ExchangesList";
-import DerivativeExchangeList from "./Component/DerivativesExchanges/DerivativesExchanges";
-import DerivativeList from "./Component/DerivativeList/DerivativeList";
 import TopGainersAndLosers from "./Component/TopGainersAndLosers/TopGainersAndLosers";
 import DataAboutBTC from "./Component/DataAboutEachCryptoCurrency/DataAboutEachCryptoCurrency";
 import Header from "./Component/Header/Header";
-import HomePage from "./Pages/HomePage";
 import Footer from "./Component/Footer/Footer";
-import SignUpForm from "./Component/SignUpForm/SignUpForm";
 import OnboardingForm from "./Component/OnboardingForm/OnboardingForm";
-import CryptocurrencyDetails from "./Component/CryptocurrencyDetails/CryptocurrencyDetails";
-import LoginPage from "./Component/Login/Login";
-import ProfilePage from "./Component/Profile/Profile";
+import CryptocurrencyDetails from "./Component/CryptocurrencyCharts/CryptocurrencyCharts";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import { useNavigate } from "react-router-dom";
 import Trading from "./Component/Trading/Trading";
+import CryptocurrencyPage from "./Pages/CryptocurrencyPage/CryptocurrencyPage";
+import MainHomePage from "./Pages/MainHomePage/MainHomePage";
+import SignUpPage from "./Pages/SignUpPage/SignUpPage";
 export default function App() {
 	return (
 		<BrowserRouter>
 			<Header />
 			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="/Crypto" element={<Cryptocurrency />} />
+				<Route path="/" element={<MainHomePage />} />
+				<Route path="/Crypto" element={<CryptocurrencyPage />} />
 				<Route path="/coins/:coinId" element={<CryptocurrencyDetails />} />
 				<Route path="/Stocks" element={<Stocks />} />
 				<Route path="/Nfts" element={<Nfts />} />
 				<Route path="/nft/:id" element={<NftDetails />} />
-				<Route path="/exchangeList" element={<ExchangeList />} />
-				<Route
-					path="/DerivativeExchangeList"
-					element={<DerivativeExchangeList />}
-				/>
-				<Route path="/DerivativeList" element={<DerivativeList />} />
 
 				<Route path="/DataAboutCrypto" element={<DataAboutBTC />} />
-				<Route path="/signup" element={<SignUpForm />} />
+				<Route path="/signup" element={<SignUpPage />} />
 				<Route path="/login" element={<LoginPage />} />
 				<Route path="/profile" element={<ProfilePage />} />
 				<Route path="/onboardingform" element={<OnboardingForm />} />

@@ -3,8 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { emailRegex } from "../../../lib/regex";
 import { Link } from "react-router-dom";
-import "./SignUpForm.scss";
-export default function RegisterPage() {
+import "./SignUpPage.scss";
+export default function SignUpPage() {
 	const navigate = useNavigate();
 	const [errorMessage, setErrorMessage] = useState(false);
 	const [success, setSuccess] = useState(false);
