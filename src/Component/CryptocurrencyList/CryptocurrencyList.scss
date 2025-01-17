@@ -1,0 +1,52 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+.coin-list__container {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 100%;
+}
+.coin-list__item {
+	flex-direction: column;
+
+	display: flex;
+	flex-wrap: wrap;
+	align-content: stretch;
+	align-items: center;
+	border: 1px solid $BackgroundColor;
+	margin: 1.25rem;
+	border-radius: 0.75rem;
+	width: 35%;
+	@include desktop {
+		width: 15%;
+	}
+}
+.coin-list__title {
+	color: $GlobalTextDarkBlue;
+	margin: 0%;
+	padding-top: 2.5rem;
+	padding-left: 1.25rem;
+	font-size: 1rem;
+	@include desktop {
+		padding: 6.25rem;
+		font-size: 3rem;
+	}
+}
+.coin-list__paragraph {
+	padding: 0.75rem;
+}
+.coin-list__wrapper {
+	display: flex;
+}
+
+.coin-list__hero-image {
+	padding: 2.5rem;
+	width: 60%;
+	transform: rotate(3deg);
+	box-shadow: none;
+	@include desktop {
+		width: 50%;
+		transform: rotate(3deg);
+		margin-bottom: 3.125rem;
+	}
+}

@@ -1,0 +1,45 @@
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/variables" as *;
+.nav {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	background-color: $BackgroundColor;
+	color: $GlobalTextColor;
+
+	&__left {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+	&__title {
+		margin: 0;
+		color: $GlobalTextColor;
+	}
+
+	&__products {
+		padding-left: 0.75rem;
+		padding-right: 0.75rem;
+	}
+	&__right {
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-end;
+		padding-top: 1.5625rem;
+	}
+
+	&__signUp {
+		padding-right: 1.25rem;
+		color: $GlobalTextColor;
+	}
+
+	&__login {
+		padding-right: 0.75rem;
+		color: $GlobalTextColor;
+	}
+}
+
+a {
+	text-decoration: none;
+}

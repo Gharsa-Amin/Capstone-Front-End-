@@ -1,0 +1,36 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
+.stock {
+	background-color: #eaecef;
+	// &__wrapper {
+	// 	// border: 1px solid $BackgroundColor;
+	// }
+	&__header {
+		display: flex;
+	}
+	&__ticker {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	&__border {
+		border: 1px solid $BackgroundColor;
+		border-radius: 0.75rem;
+		margin: 0.75rem;
+		background-color: #fff;
+		color: $BackgroundColor;
+	}
+	&__row {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}

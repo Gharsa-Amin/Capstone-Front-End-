@@ -1,0 +1,27 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
+.coin-list {
+	&__timeframes {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__image {
+		width: 10%;
+		padding-top: 0.75rem;
+	}
+	&__header {
+		display: flex;
+		padding: 1rem;
+		padding-left: 1.25rem;
+	}
+	&__name {
+		padding: 0.75rem;
+		padding-right: 1.25rem;
+		font-size: 1.125rem;
+	}
+	&__price {
+		color: $RedColor;
+	}
+}

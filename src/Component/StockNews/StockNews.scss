@@ -1,0 +1,23 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
+.stocknews {
+	&-wrapper {
+		display: flex;
+		justify-content: space-between;
+		font-size: 0.75rem;
+	}
+	&-publisher {
+		margin-right: 0.75rem;
+		text-decoration: none;
+		color: $RedColor;
+	}
+	&-title {
+		font-style: italic;
+	}
+	&-description {
+		font-size: 1rem;
+		border-bottom: 1px solid $BackgroundColor;
+	}
+}

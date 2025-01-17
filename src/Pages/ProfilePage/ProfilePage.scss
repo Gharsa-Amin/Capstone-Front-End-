@@ -1,0 +1,16 @@
+.profile__item {
+	display: flex;
+	flex-direction: row;
+	padding-left: 0.75rem;
+}
+.profile__item-modifier {
+	display: flex;
+}
+.profile__item-modifier div {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px; /* Adds space between each coin */
+}
+.wrapper__profile {
+	gap: 0.75rem;
+}

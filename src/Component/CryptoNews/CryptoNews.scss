@@ -1,0 +1,54 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
+li {
+	text-decoration: none;
+	list-style: none;
+	margin-right: 0.75rem;
+}
+
+.news {
+	&-images {
+		width: 5.625rem;
+		padding-right: 0.75rem;
+		padding-top: 0.75rem;
+		border-radius: 1.25rem;
+		box-shadow: none;
+	}
+	&-header {
+		margin: 0;
+		padding: 0;
+		padding-left: 2rem;
+	}
+	&-wrapper {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		font-size: 0.75rem;
+	}
+
+	&-summary {
+		font-size: 0.75rem;
+	}
+	&-sentiment {
+		font-style: italic;
+		font-size: 0.75rem;
+	}
+	&-source {
+		font-style: italic;
+		font-size: 0.75rem;
+	}
+	&-top-sentiment {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px solid $BackgroundColor;
+	}
+	&-title {
+		color: $GlobalTextDarkBlue;
+		font-size: 0.75rem;
+	}
+}
+.coin-list__view-more {
+	margin: 1rem;
+}
