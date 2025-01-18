@@ -3,13 +3,13 @@ body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
-	overflow-x: hidden; /* Prevent horizontal scrolling */
+	overflow-x: hidden;
 	width: 100%;
 	position: relative;
 }
 
 body {
-	overflow-y: auto; /* Allow vertical scrolling */
+	overflow-y: auto;
 	display: flex;
 	flex-direction: column;
 	height: 100%;
@@ -20,6 +20,6 @@ body {
 }
 
 .container {
-	min-height: 0; /* Prevent overflow */
+	min-height: 0;
 	height: 100%;
 }

@@ -67,10 +67,9 @@
 }
 
 @media (min-width: 1024px) {
-	/* Additional adjustments for very large screens (desktops) */
 	.defi-table th,
 	.defi-table td {
 		padding: 14px 24px;
-		font-size: 20px; /* Larger font size for large desktops */
+		font-size: 20px;
 	}
 }

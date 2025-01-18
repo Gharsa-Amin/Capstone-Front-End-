@@ -173,14 +173,13 @@ export default function CryptocurrencyCharts() {
 						<div onClick={() => handleTimeframeClick("7d")}>7D</div>
 						<div onClick={() => handleTimeframeClick("1m")}>1M</div>
 						<div onClick={() => handleTimeframeClick("1y")}>1Y</div>
-						<div onClick={() => handleTimeframeClick("5y")}>5+Y</div>
 					</div>
 				</div>
 
 				{/* Price Data Line Chart */}
 				<div className="coin-list__chart">
 					{selectedTimeframe === "1h" && (
-						<ResponsiveContainer width="100%" height={300}>
+						<ResponsiveContainer width="90%" height={300}>
 							<LineChart data={priceData}>
 								<CartesianGrid strokeDasharray="3 3" />
 								<XAxis dataKey="time" />
@@ -193,7 +192,7 @@ export default function CryptocurrencyCharts() {
 					)}
 
 					{selectedTimeframe === "7d" && (
-						<ResponsiveContainer width="100%" height={300}>
+						<ResponsiveContainer width="90%" height={300}>
 							<LineChart data={priceData7Days}>
 								<CartesianGrid strokeDasharray="4 3" />
 								<XAxis dataKey="time" />
@@ -206,7 +205,7 @@ export default function CryptocurrencyCharts() {
 					)}
 
 					{selectedTimeframe === "1m" && (
-						<ResponsiveContainer width="100%" height={300}>
+						<ResponsiveContainer width="90%" height={300}>
 							<LineChart data={priceData30Days}>
 								<CartesianGrid strokeDasharray="4 3" />
 								<XAxis dataKey="time" />
@@ -219,7 +218,7 @@ export default function CryptocurrencyCharts() {
 					)}
 
 					{selectedTimeframe === "1y" && (
-						<ResponsiveContainer width="100%" height={300}>
+						<ResponsiveContainer width="90%" height={300}>
 							<LineChart data={priceData60Days}>
 								<CartesianGrid strokeDasharray="4 3" />
 								<XAxis dataKey="time" />

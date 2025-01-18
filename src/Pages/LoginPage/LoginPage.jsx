@@ -59,15 +59,12 @@ export default function LoginPage() {
 			console.error(error); // Log the full error object for debugging
 
 			if (error.response) {
-				// The request was made and the server responded with a status code outside of 2xx
 				setErrorMessage(error.response.data.message || "An error occurred.");
 			} else if (error.request) {
-				// The request was made, but no response was received
 				setErrorMessage(
 					"No response from server. Please check your connection."
 				);
 			} else {
-				// Something happened in setting up the request that triggered an Error
 				setErrorMessage("An error occurred while setting up the request.");
 			}
 		}

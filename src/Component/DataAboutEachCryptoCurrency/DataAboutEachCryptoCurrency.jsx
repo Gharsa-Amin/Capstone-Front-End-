@@ -33,7 +33,7 @@ export default function DataAboutEachCryptoCurrency() {
 		current_price,
 		high_24h,
 		low_24h,
-		price_change_24h,
+
 		price_change_percentage_24h,
 		market_cap_change_percentage_24h,
 		circulating_supply,
@@ -44,11 +44,6 @@ export default function DataAboutEachCryptoCurrency() {
 		atl_date,
 	} = coinDetails;
 
-	const formatDate = (date) => {
-		if (!date) return null;
-		const dataobj = new Date(date);
-		return dataobj.toLocaleDateString("en-ca");
-	};
 	return (
 		<>
 			<div className="coin-list__section">

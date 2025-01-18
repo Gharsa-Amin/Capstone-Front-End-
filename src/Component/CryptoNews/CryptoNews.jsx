@@ -48,7 +48,7 @@ export default function CryptoNews() {
 								<p className="news-title">Title: {newsItem.title}</p>
 							</Link>
 						</div>
-						{/* <p>Published: {newsItem.time_published}</p> */}
+
 						<p className="news-summary"> {newsItem.summary}</p>
 						<div className="news-top-sentiment">
 							<p className="news-sentiment">
