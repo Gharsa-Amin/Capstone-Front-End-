@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { emailRegex } from "../../../lib/regex";
+import "./LoginPage.scss";
 
 export default function LoginPage() {
 	const navigate = useNavigate();

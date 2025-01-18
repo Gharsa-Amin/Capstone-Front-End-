@@ -1,7 +1,9 @@
 @use "../../styles/partials/typograph" as *;
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/variables" as *;
-
+body {
+	font-family: "Titillium Web", sans-serif;
+}
 .form-section {
 	padding: 2.5rem;
 	background-color: rgb(252, 252, 252);
@@ -50,4 +52,5 @@ textarea {
 	width: 80%;
 	margin-top: 12px;
 	margin-left: 40px;
+	font-family: "Titillium Web", sans-serif;
 }

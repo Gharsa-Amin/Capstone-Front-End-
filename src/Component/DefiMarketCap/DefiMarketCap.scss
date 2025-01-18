@@ -4,7 +4,7 @@
 @use "../../styles/partials/variables" as *;
 
 .defi-table {
-	width: 100%;
+	width: 90%;
 	border-collapse: collapse;
 	margin: 0 auto;
 	table-layout: fixed;
@@ -61,8 +61,8 @@
 
 	.defi-table th,
 	.defi-table td {
-		padding: 12px 20px; /* Increase padding */
-		font-size: 18px; /* Larger font size for desktop */
+		padding: 12px 20px;
+		font-size: 18px;
 	}
 }
 

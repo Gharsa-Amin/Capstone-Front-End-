@@ -3,10 +3,9 @@
 @use "./styles/partials/mixins" as *;
 
 * {
-	margin: 0;
-	padding: 0;
+	margin: auto;
+	padding: auto;
 	box-sizing: border-box;
-	font-family: $primary-font;
 	color: $global-text-color;
 }
 
@@ -15,4 +14,18 @@ body {
 	display: flex;
 	min-width: 320px;
 	min-height: 100vh;
+	font-family: "Titillium Web", sans-serif;
+	padding: 0.5rem;
+	font-size: 1.125rem;
+}
+
+button {
+	font-family: "Titillium Web", sans-serif;
+}
+.homepage__button {
+	font-family: "Titillium Web", sans-serif;
+}
+
+a {
+	font-family: "Titillium Web", sans-serif;
 }

@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import "./DataAboutEachCryptoCurrency.scss";
 
 export default function DataAboutEachCryptoCurrency() {
 	const [coinDetails, setCoinDetails] = useState(null);
@@ -24,11 +23,9 @@ export default function DataAboutEachCryptoCurrency() {
 	}, [coinId]);
 
 	if (!coinDetails) {
-		// Optionally, you can display a loading spinner or message while the data is being fetched
 		return <p>Loading...</p>;
 	}
 
-	// Destructure the values from coinDetails to use them in JSX
 	const {
 		market_cap,
 		fully_diluted_valuation,
@@ -41,9 +38,9 @@ export default function DataAboutEachCryptoCurrency() {
 		market_cap_change_percentage_24h,
 		circulating_supply,
 		total_supply,
-		ath,
+
 		ath_date,
-		atl,
+
 		atl_date,
 	} = coinDetails;
 
@@ -81,11 +78,6 @@ export default function DataAboutEachCryptoCurrency() {
 					<div>24Hrs Low</div>
 					<p className="coin-list__low24">${low_24h}</p>
 				</div>
-				<div className="wrapper">
-					<div>Price Change in 24Hrs</div>
-					<p className="coin-list__price-change">${price_change_24h}</p>
-				</div>
-
 				<div className="wrapper">
 					<div>Price Change in 24Hrs </div>
 					<p className="coin-list__percentage-change">

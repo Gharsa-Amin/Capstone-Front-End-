@@ -16,7 +16,7 @@ export default function ComplaintForm() {
 			return;
 		}
 
-		const formData = { name, email, complaints }; // 'complaints' instead of 'complaint'
+		const formData = { name, email, complaints };
 
 		try {
 			// Directly call the backend API here
@@ -78,7 +78,6 @@ export default function ComplaintForm() {
 						</button>
 					</div>
 				</form>
-				{/* Show success or error message */}
 				{message && <p>{message}</p>}
 			</div>
 		</section>

@@ -2,6 +2,9 @@
 @use "../../styles/partials/mixin" as *;
 @use "../../styles/partials/variables" as *;
 
+body {
+	font-family: "Titillium Web", sans-serif;
+}
 .coin-list {
 	&__timeframes {
 		display: flex;
