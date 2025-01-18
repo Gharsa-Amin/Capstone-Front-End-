@@ -1,9 +1,17 @@
+@use "../../styles/partials/typograph" as *;
+@use "../../styles/partials/mixin" as *;
+@use "../../styles/partials/variables" as *;
+
 .profile__item {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	margin-top: 1rem;
+	font-size: 1rem;
+	width: 100%;
+	font-style: oblique;
+	color: $GlobalTextDarkBlue;
 }
 .profile__item-modifier {
 	display: flex;
@@ -11,8 +19,14 @@
 .profile__item-modifier div {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 12px; /* Adds space between each coin */
+	gap: 12px;
 }
 .wrapper__profile {
 	gap: 0.75rem;
+}
+.profile__wrapper {
+	margin-left: 1.25rem;
+}
+.profile__button {
+	margin-left: 1rem;
 }

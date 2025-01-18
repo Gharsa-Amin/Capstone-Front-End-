@@ -69,11 +69,15 @@ export default function ProfilePage() {
 					<p className="profile__item">
 						Current Occupation: {userData.current_occupation}
 					</p>
-					<Link to="/trading">
-						<button>Trade</button>
-					</Link>
-					<button>Deposit</button>
-					<button onClick={handleLogout}>Logout</button>
+					<div className="profile__wrapper">
+						<Link to="/trading">
+							<button className="profile__button">Trade</button>
+						</Link>
+						<button className="profile__button">Deposit</button>
+						<button className="profile__button" onClick={handleLogout}>
+							Logout
+						</button>
+					</div>
 					<h2>Start Trading Here!</h2>
 					<CoinList />
 					<CryptoNews />
