@@ -5,7 +5,6 @@ import TopGainersAndLosers from "../../Component/TopGainersAndLosers/TopGainersA
 export default function Stocks() {
 	return (
 		<>
-			{/* <Market /> */}
 			<TopGainersAndLosers />
 			<StockNews />
 		</>

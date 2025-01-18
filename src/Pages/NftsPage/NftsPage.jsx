@@ -49,7 +49,7 @@ export default function Nfts() {
 					</svg>
 				</Link>
 			</div>
-			<p>This pengu loves you A lot, more than the sky </p>
+			<p>The pengu loves you :) </p>
 			<img src={image7} alt="" />
 			<ul className="nfts">
 				{showAllNfts.map((listNFT) => {
@@ -70,7 +70,7 @@ export default function Nfts() {
 					);
 				})}
 				{listNFTS.length > 5 && (
-					<button className="form__button" onClick={handleToggle}>
+					<button className="nft__button" onClick={handleToggle}>
 						{showAll ? "View Less" : "View More"}
 					</button>
 				)}
