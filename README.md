@@ -92,9 +92,9 @@ You can create diagrams or write out the relationships. The core relationships i
 ---
 
 ## **Endpoints**  
-Here are the API endpoints that will be implemented on the server:
+Here are just a few of the the API endpoints that will be implemented on the server, the actual project is using many API endpoints from Coingeco, Polygon, and Alphavantage"
 
-### **API Endpoints:**
+### **Some API Endpoints (I am using many API endpoints, its just endpoints from polygon":**
 
 1. **Market Status** (Market Opening & Closing Times)  
    **GET** `https://api.polygon.io/v1/marketstatus/now?apiKey=<YourAPIKey>`
@@ -148,8 +148,9 @@ These are some additional features to consider after completing the MVP:
 - **ZK-Rollups**: Implement ZK-Rollups for scalability and faster transaction processing.
 - **Game Creation**: A feature where users can create and play blockchain-based games.
 - **Blockchain Education**: Provide a library of top blockchain books, videos, and resources.
+- Adding Deposit button to connect user wallets to the app, so they can connect to their banks and deposit funds" 
 
-**Technologies**:  
+**Technologies to be used in future implementions**:  
 - **Languages**: Rust, Web3.js.
 
 ---
@@ -170,7 +171,7 @@ These are some additional features to consider after completing the MVP:
 ---
 
 ## **Final Notes**  
-The MVP will include crypto trading, stock trading, and an NFT marketplace, along with essential features such as user authentication and real-time news. Advanced features like blockchain integration and smart contracts will be explored later if time permits.
+The MVP will include crypto trading, stock top gainers, losers, and marketdata, and an NFT marketplace, along with essential features such as user authentication and real-time news. Advanced features like blockchain integration, depositing funds into the app, and smart contracts will be explored later if time permits.
 
 ---
 
