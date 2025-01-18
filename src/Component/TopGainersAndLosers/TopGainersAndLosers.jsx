@@ -72,7 +72,7 @@ export default function TopGainersAndLosers() {
 					</svg>
 				</Link>
 			</div>
-			<h1>Stocks</h1>
+			<h1 className="stock__head">Stocks</h1>
 			<ul className="stock__wrapper">
 				<h2 className="stock__header">Top Gainers</h2>
 				{gainer.top_gainers?.length > 0 ? (

@@ -15,9 +15,14 @@
 	}
 	&-title {
 		font-style: italic;
+		font-size: 0.9375rem;
+		color: $GlobalTextDarkBlue;
 	}
 	&-description {
 		font-size: 1rem;
 		border-bottom: 1px solid $BackgroundColor;
+	}
+	&__button {
+		font-family: "Titillium Web", sans-serif;
 	}
 }

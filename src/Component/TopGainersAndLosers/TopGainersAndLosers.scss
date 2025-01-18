@@ -4,11 +4,16 @@
 
 .stock {
 	background-color: #eaecef;
-	// &__wrapper {
-	// 	// border: 1px solid $BackgroundColor;
-	// }
 	&__header {
 		display: flex;
+	}
+	&__head {
+		padding-left: 0.75rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: $GlobalTextDarkBlue;
 	}
 	&__ticker {
 		display: flex;

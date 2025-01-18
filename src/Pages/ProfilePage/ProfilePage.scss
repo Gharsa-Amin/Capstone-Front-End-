@@ -1,7 +1,9 @@
 .profile__item {
 	display: flex;
-	flex-direction: row;
-	padding-left: 0.75rem;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 1rem;
 }
 .profile__item-modifier {
 	display: flex;

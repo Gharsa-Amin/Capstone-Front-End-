@@ -43,7 +43,7 @@ export default function StockNews() {
 					);
 				})}
 				{news.length > 5 && (
-					<button onClick={handleToggle}>
+					<button className="stocknews__button" onClick={handleToggle}>
 						{showAll ? "View Less" : "View More"}
 					</button>
 				)}
