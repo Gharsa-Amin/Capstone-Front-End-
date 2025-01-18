@@ -1,88 +1,176 @@
+# **Project Title: Blockchain Hub**
 
-Project Title Blockchain Hub
+---
 
-Overview What is your app? Give a brief description in a couple of sentences. 
-I developed **GDChain**, a full-stack, mobile-first blockchain hub app with a variety of features:
+## **Overview**  
+**What is your app?**  
+GDChain is a full-stack, mobile-first blockchain hub app with a variety of features:
+- **Real-time News Feed**: Fetches cryptocurrency-related news from multiple external APIs.
+- **User Authentication**: Secure login and sign-up process with personalized user accounts and profiles.
+- **Favourite Coins**: Users can select and track their top cryptocurrency assets.
+- **Real-time Price Monitoring**: Visualize cryptocurrency prices and trends with interactive charts.
+- **Market Insights**: Users can monitor the top gainers and losers in the stock market.
+- **NFTs Overview**: Displays a list of NFTs, with links to OpenSea for purchases and blockchain explorers for transaction histories.
+- **Trading Functionality**: Allows users to trade cryptocurrencies directly within the app.
 
-1. **Real-time News Feed**: Fetches cryptocurrency-related news from multiple external APIs.
-2. **User Authentication**: Secure login and sign-up process with personalized user accounts and profiles.
-3. **Favourite Coins**: Users can select and track their top cryptocurrency assets.
-4. **Real-time Price Monitoring**: Visualize cryptocurrency prices and trends with interactive charts.
-5. **Market Insights**: Users can monitor the top gainers and losers in the stock market.
-6. **NFTs Overview**: Displays a list of NFTs, with links to OpenSea for purchases and blockchain explorers for transaction histories.
-7. **Trading Functionality**: Allows users to trade cryptocurrencies directly within the app.
+---
 
-The project utilizes the following technologies: 
-- **Frontend**: React, React Router DOM, Sass, and Chart.js for dynamic data visualization 
-- **Backend**: Node.js, Express.js, MySQL, JWT authentication 
-- **Development Tools**: GitHub, Figma, Jira, External APIs 
+## **Problem Space**  
+**Why is your app needed?**  
+Most cryptocurrency trading platforms have a lengthy process and are difficult for users to navigate. The current platforms are hard to use and often fail to provide easy access for users. **GDChain** solves these issues by providing a simple-to-use, mobile-friendly platform for crypto and stock trading.
 
+---
 
+## **User Profile**  
+**Who will use your app? How will they use it?**  
+- **Target Users**: Younger generations and anyone involved in trading stocks and cryptocurrencies.
+- **Usage**: Users will use the app for easy and efficient trading of crypto and stocks, tracking news and price trends, and managing their crypto portfolios.
 
-Problem Space Why is your app needed? Give any background information around any pain points or other reasons. It is an app where people can trade any crypto assets. I think crypto-trading platforms mostly have a lenghty process, the users cannot access the apps, its very hard to use. This app will solve that issue, due to its simple to use nature.
+**Special Considerations**:
+- Simple user interface
+- Secure login and user account management
+- Real-time market data and trading capabilities
 
-User Profile Who will use your app? How will they use it? Add any special considerations that your app must take into account. Younger generations, anyone who is trading stocks and crypto.
+---
 
-Features List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe how these features are implemented, only what needs to be implemented.
+## **Features**  
+Here are the main functionalities that will be implemented:
 
-A database to capture user-info 
-A crypto+stock trading capabilities real time news getting from API, 
-a Form to submit their concerns 
+- **User Info Database**: A database to capture and store user information.
+- **Crypto & Stock Trading**: Real-time trading capabilities for cryptocurrency and stocks.
+- **Real-time News Feed**: Fetch real-time crypto-related news from APIs.
+- **User Feedback**: A form where users can submit their concerns or feedback.
 
-Implementation Tech Stack List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+---
 
-React, Node.js, Express, and mySQL APIs 
+## **Implementation Tech Stack**  
+Here is the list of technologies that will be used:
 
-List any external sources of data that will be used in your app. 1: I will be using the Polygon API (https://api.polygon.io/v1/marketstatus/now?apiKey=FW1L_lPWu8lU3u1txdnAl3XJojOGCth7) which will give me data about all the markets (crypto, stocks, etc); their opening and closing hours, general holiday off days, real time news about the latest 100 news events happening, a list of all the crypto-related top coins and their tickers and getting the high, low and other dataPoints of the cryptomarket on each given day.
+- **Frontend**: React, React Router DOM, Sass, and Chart.js for dynamic data visualization.
+- **Backend**: Node.js, Express.js, MySQL, JWT authentication.
+- **Development Tools**: GitHub, Figma, Jira, External APIs.
 
-2: I will also use the Coingeco to get data about the specific crypto-tickers, and its market information:
+---
 
-3. I will user Alphavantage API too. 
+## **External Sources of Data**  
+Here are the external APIs used in the app:
 
-Sitemap List the pages of your app with brief descriptions. You can show this visually, or write it out. 
+1. **Polygon API**:  
+   - **Market Status**: Fetch market opening and closing times, holidays, and real-time news.  
+     **Endpoint**: `https://api.polygon.io/v1/marketstatus/now?apiKey=FW1L_lPWu8lU3u1txdnAl3XJojOGCth7`
 
+2. **CoinGecko API**:  
+   - Fetches specific crypto-ticker data and market information.
 
-I will have three main products: One for crypto trading, one for stock trading and one for NFT marketplace. Each product has its own page. I will also have a signup page, a login page, a useronbaording page, and profile page. The profile page is customized to the user.  
+3. **Alphavantage API**:  
+   - Fetches stock market data, including trading info and trends.
 
-Mockups Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma.
+---
 
-Data Describe your data and the relationships between the data points. You can show this visually using diagrams, or write it out.
+## **Sitemap**  
+The following pages will be part of the app:
 
-Endpoints List endpoints that your server will implement, including HTTP methods, parameters, and example responses. //more info on making API calls to Polygon: https://github.com/polygon-io/client-js
+- **Crypto Trading Page**: For crypto market and trading functionalities.
+- **Stock Trading Page**: For stock market and trading functionalities.
+- **NFT Marketplace**: For exploring and purchasing NFTs.
+- **Sign-up Page**: For creating a new user account.
+- **Login Page**: For existing users to log in.
+- **User Onboarding Page**: For user onboarding and initial setup.
+- **Profile Page**: Customized to each user, displaying their portfolio and preferences.
 
+---
 
-//Getting the API data about different markets and their operating hours: //Get Request to this endPoint: Giving data about the different markets and their opening and closing hours... under "Market Status" const URL = "https://api.polygon.io/v1/marketstatus/now?apiKey=FW1L_lPWu8lU3u1txdnAl3XJojOGCth7";
+## **Mockups**  
+You can create visuals of your app's screens using tools like Figma, or you can sketch them by hand.
 
-//Get endPoint for when the markets are closed: under "Market Holidays"; const secondURL = "https://api.polygon.io/v1/marketstatus/upcoming?apiKey=FW1L_lPWu8lU3u1txdnAl3XJojOGCth7";
+---
 
-//Real time news Data about the recent tickers available under "Ticker News"; const thirdURL = "https://api.polygon.io/v2/reference/news?limit=30&apiKey=FW1L_lPWu8lU3u1txdnAl3XJojOGCth7";
+## **Data**  
+**Describe your data and the relationships between the data points**.  
+You can create diagrams or write out the relationships. The core relationships involve user data, trading data (cryptos/stocks), real-time news, and transaction histories.
 
-//Base URL for all crypto-related tickers: const FourthURL = "https://api.polygon.io/v3/reference/tickers?active=true&limit=300&apiKey=FW1L_lPWu8lU3u1txdnAl3XJojOGCth7";
- 
-//Can get Data about the Aggregates (Bars) for each cryptocurrency... 
-//Can get Data about the Grouped Daily bars for each cryptocurrency...
+---
 
-//Get the high, low and other dataPoints of the crypto market on each given day: 
+## **Endpoints**  
+Here are the API endpoints that will be implemented on the server:
 
-Roadmap Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation working back from the capstone due date.
+### **API Endpoints:**
 
-Creating the back-end, Creating endpoints for the API, and testing it. Working on creating the database Creating the front-end Future Implementations Your project will be marked based on what you committed to in the above document. Here, you can list any additional features you may complete after the MVP of your application is built, or if you have extra time before the Capstone due date. I am hoping to have a blockchain up and running on the app, and have smart contracts coded for this app during the capstone. I don't want to over-commit, depending on the workload, I will see if I can execute everything in this short timeframe.
+1. **Market Status** (Market Opening & Closing Times)  
+   **GET** `https://api.polygon.io/v1/marketstatus/now?apiKey=<YourAPIKey>`
 
-A smart contract advanced trading executions A ZK-roll-up a spot where people can create their own games. 5.a server hosting the top blockchain resources for educational purposes, of top books and educational youtube channels. Rust and web3.js
+2. **Market Holidays** (Upcoming Market Holidays)  
+   **GET** `https://api.polygon.io/v1/marketstatus/upcoming?apiKey=<YourAPIKey>`
 
-Roadmap
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation working back from the capstone due date.
+3. **Ticker News** (Real-time News on Tickers)  
+   **GET** `https://api.polygon.io/v2/reference/news?limit=30&apiKey=<YourAPIKey>`
 
-Creating the back-end,
-Creating endpoints for the API, and testing it.
-Working on creating the database
-Creating the front-end
-Future Implementations
-Your project will be marked based on what you committed to in the above document. Here, you can list any additional features you may complete after the MVP of your application is built, or if you have extra time before the Capstone due date. I am hoping to have a blockchain up and running on the app, and have smart contracts coded for this app during the capstone. I don't want to over-commit, depending on the workload, I will see if I can execute everything in this short timeframe.
+4. **Crypto Tickers** (Base URL for all crypto-related tickers)  
+   **GET** `https://api.polygon.io/v3/reference/tickers?active=true&limit=300&apiKey=<YourAPIKey>`
 
-A smart contract
-advanced trading executions
-A ZK-roll-up
-a spot where people can create their own games. 5.a server hosting the top blockchain resources for educational purposes, of top books and educational youtube channels.
-Rust and web3.js
+5. **Crypto Market Data** (High, Low, Data Points for Daily Market)  
+   **GET** Various endpoints to fetch daily aggregates and historical crypto market data.
+
+---
+
+## **Roadmap**  
+Here is a high-level scope for the project, broken down into tasks and timeframes:
+
+### **Phase 1: Back-end Development**
+- **Task**: Set up the back-end using Node.js and Express.js.
+- **Subtasks**:
+  - Create API endpoints for fetching market data.
+  - Implement user authentication with JWT.
+  - Set up a MySQL database for storing user info and transaction history.
+  - Test API responses and error handling.
+
+### **Phase 2: Front-end Development**
+- **Task**: Build the front-end with React and integrate with the back-end.
+- **Subtasks**:
+  - Design and implement UI for the home, trading, and profile pages.
+  - Integrate with the Polygon, CoinGecko, and Alphavantage APIs for live data.
+  - Implement features like charts, news feed, and user authentication.
+
+### **Phase 3: Testing and Deployment**
+- **Task**: Finalize the app and deploy it.
+- **Subtasks**:
+  - Conduct testing (unit tests, integration tests, and user acceptance testing).
+  - Deploy the app to a hosting platform (e.g., Heroku, AWS).
+  - Ensure mobile responsiveness and accessibility.
+
+---
+
+## **Future Implementations**  
+These are some additional features to consider after completing the MVP:
+
+- **Blockchain Integration**: Set up a blockchain network within the app and enable smart contracts for trading.
+- **Advanced Trading Features**: Implement advanced trading capabilities (e.g., margin trading, stop-loss).
+- **ZK-Rollups**: Implement ZK-Rollups for scalability and faster transaction processing.
+- **Game Creation**: A feature where users can create and play blockchain-based games.
+- **Blockchain Education**: Provide a library of top blockchain books, videos, and resources.
+
+**Technologies**:  
+- **Languages**: Rust, Web3.js.
+
+---
+
+## **Roadmap (Sprint Plan)**  
+### **Sprint 1: Back-end & Database Setup**
+- **Week 1**: 
+  - Set up server and API endpoints.
+  - Implement JWT authentication and user management.
+  - Set up MySQL database for user info.
+  
+### **Sprint 2: Front-end Development & API Integration**
+- **Week 2**:
+  - Implement the front-end using React.
+  - Integrate Polygon, CoinGecko, and Alphavantage APIs for real-time data.
+  - Design key pages (Profile, Trading, and NFT Marketplace).
+
+---
+
+## **Final Notes**  
+The MVP will include crypto trading, stock trading, and an NFT marketplace, along with essential features such as user authentication and real-time news. Advanced features like blockchain integration and smart contracts will be explored later if time permits.
+
+---
 
