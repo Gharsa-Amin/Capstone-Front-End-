@@ -55,7 +55,6 @@ export default function CoinList() {
 				</div>
 				<DefiMarketCap />
 				<div className="coin-list__wrapper">
-					<h3 className="coin-list__title">Start Trading </h3>
 					<img className="coin-list__hero-image" src={image5} alt="" />
 				</div>
 
